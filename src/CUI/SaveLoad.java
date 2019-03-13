@@ -5,7 +5,7 @@
  */
 package CUI;
 
-import CUI.Entity_Package.Character;
+import CUI.Entity_Package.Player;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class SaveLoad
 {
 
-    private static ArrayList<Character> characterSaveList;
+    private static ArrayList<Player> characterSaveList;
 
     /**
      * Saves the current character selected.
@@ -23,7 +23,7 @@ public class SaveLoad
      * @param character what character is getting saved.
      * @param index which index to save in the list.
      */
-    public static void saveCharacter(Character character, int index)
+    public static void saveCharacter(Player character, int index)
     {
 
     }
@@ -34,9 +34,11 @@ public class SaveLoad
      * @param index which character to load in the list.
      * @return the character selected from the save list.
      */
-    public static Character loadCharacter(int index)
+    public static Player loadCharacter(int index)
     {
-        return null;
+        Player loadedCharacter = null;
+        
+        return loadedCharacter;
     }
 
     /**
@@ -44,8 +46,9 @@ public class SaveLoad
      *
      * @return the save list.
      */
-    public static ArrayList<Character> getSaveList()
+    public static ArrayList<Player> getSaveList()
     {
+        
         return null;
     }
 }

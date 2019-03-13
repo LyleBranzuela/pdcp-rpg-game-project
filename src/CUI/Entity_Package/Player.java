@@ -13,17 +13,17 @@ import java.util.ArrayList;
  * Class for the main character of the game.
  * @author lyleb and khoap
  */
-public class Character extends Entity
+public class Player extends Entity
 {
     public ArrayList<Item> itemsHeld;
     public int stageLevel;
 
     /**
-     * Constructor for the game character.
+     * Constructor for the game player.
      * 
-     * @param name name of the character chosen by the user.
+     * @param name name of the player chosen by the user.
      */
-    public Character(String name)
+    public Player(String name)
     {
         super(name, 10);
         this.stageLevel = 1;
@@ -47,7 +47,7 @@ public class Character extends Entity
      */
     public void useItem(int index)
     {
-        this.itemsHeld.get(index).itemUsage();
+        this.itemsHeld.get(index).useItem();
         this.itemsHeld.remove(index);
         this.itemsHeld.trimToSize();
     }
@@ -76,7 +76,15 @@ public class Character extends Entity
      * 
      * @param stage 
      */
-    public void setStageLevel(Stage stage) {
+    public void setCurrentStageLevel(Stage stage) {
         this.stageLevel = stage.getStageLevel();
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public int getCurrentStageLevel() {
+        return this.stageLevel;
     }
 }

@@ -7,6 +7,7 @@ package CUI.Stages;
 
 /**
  * Abstract parent class for all the stages.
+ *
  * @author lyleb and khoap
  */
 public abstract class Stage
@@ -15,27 +16,59 @@ public abstract class Stage
     protected int stageLevel;
 
     /**
-     * 
-     * 
-     * @param stageLevel 
-     */
-    public Stage(int stageLevel)
-    {
-        this.stageLevel = stageLevel;
-    }
-
-    /**
      * Returns the stage level of the stage.
-     * 
+     *
      * @return the stage level of the current stage.
      */
     public int getStageLevel()
     {
-        return stageLevel;
+        return this.stageLevel;
     }
 
     /**
-     * Abstract function to be filled with the stage rooms.
+     * Abstract function to be filled with to initiate the stage rooms.
      */
-    abstract public void setRoom();
+    abstract public void initiateStage();
+
+    /**
+     * Returns the current stage the game is in.
+     *
+     * @param currentStageLevel
+     * @return
+     */
+    public Stage getStage(int currentStageLevel)
+    {
+        // Default Stage
+        this.stageLevel = currentStageLevel;
+        Stage tempStage = null;
+        
+        switch (this.stageLevel)
+        {
+            case 1:
+                tempStage = new Stage_1();
+                break;
+
+            case 2:
+                tempStage = new Stage_2();
+                break;
+
+            case 3:
+                tempStage = new Stage_3();
+                break;
+
+            case 4:
+                tempStage = new Stage_4();
+                break;
+
+            default:
+                System.out.println("Error finding the stage.");
+                break;
+        }
+
+        if (tempStage == null)
+        {
+            tempStage.initiateStage();
+        }
+        return tempStage;
+    }
 }

@@ -25,7 +25,7 @@ public abstract class Item
     /**
      * Abstract class for children classes, to decide what the item does.
      */
-    abstract public void itemUsage();
+    abstract public void useItem();
     
     /**
      * Returns the name of the item.

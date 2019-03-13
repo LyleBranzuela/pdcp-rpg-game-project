@@ -5,6 +5,10 @@
  */
 package CUI;
 
+
+import CUI.Stages.*;
+import CUI.Entity_Package.*;
+
 /**
  * Driver class for the whole CUI.
  * @author lyleb and khoap
@@ -12,6 +16,8 @@ package CUI;
 public class Main_Driver
 {
     public static void main (String[] args) {
-
+        Menus menu = new Menus();
+        menu.initializeMenu();
+        
     }
 }

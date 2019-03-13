@@ -12,17 +12,8 @@ package CUI.Stages;
 public class Stage_3 extends Stage
 {
 
-    /**
-     * 
-     */
-    public Stage_3()
-    {
-        // Stage 3
-        super(3);
-    }
-
     @Override
-    public void setRoom()
+    public void initiateStage()
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
