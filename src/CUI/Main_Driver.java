@@ -18,6 +18,5 @@ public class Main_Driver
     public static void main (String[] args) {
         Menus menu = new Menus();
         menu.initializeMenu();
-        
     }
 }

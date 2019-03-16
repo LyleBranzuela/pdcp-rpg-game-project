@@ -5,7 +5,7 @@
  */
 package CUI;
 
-import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -29,6 +29,10 @@ public class UtilityMethods
         int selector = 0;
         boolean scanCheck = false;
         
+        if (event.length > 6 || event.length < 6)
+        {
+            System.out.println("ERROR, EVENT PARAMETER IS WRONG. (No. of Events:" + event.length + ")");
+        }
         System.out.print(event[0]);  
         System.out.println("[1]" + event[1]);
         System.out.println("[2]" + event[2]);
@@ -37,29 +41,34 @@ public class UtilityMethods
         System.out.println(event[5]);
         System.out.print("Action: ");
        
+      
         while(!scanCheck && reader.hasNextInt()) {
-            selector = reader.nextInt();
-            switch(selector)
-            {
-                case 1:
-                    return 1;
-                
-                case 2:
-                    return 2;
-                    
-                case 3:
-                    return 3;
-                    
-                case 4:
-                    return 4;
-                    
-                default:
-                    System.out.print("\n[Choose a choice ranging from 1-4!]\n\n");
-                    scanCheck = true;
-                    UtilityMethods.clearScreen();
-                    return 0;
+            try {
+                selector = reader.nextInt();
+                switch(selector)
+                {
+                    case 1:
+                        return 1;
+
+                    case 2:
+                        return 2;
+
+                    case 3:
+                        return 3;
+
+                    case 4:
+                        return 4;
+
+                    default:
+                        System.out.print("\n[Choose a choice ranging from 1-4!]\n\n");
+                        scanCheck = true;
+                        UtilityMethods.clearScreen();
+                        return 0;
+                }
             }
-            
+            catch (InputMismatchException  e) {
+                 System.out.print("\n[Please only input a number ranging 1-4!]\n\n");
+            }
         }
         return 0;
     }

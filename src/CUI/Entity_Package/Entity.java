@@ -35,6 +35,16 @@ public abstract class Entity
     //abstract protected void characterMovement();
 
     /**
+     * Sets the name of the entity.
+     * 
+     * @param name specified name sent.
+     */
+    public void getName(String name)
+    {
+        this.name = name;
+    }
+    
+    /**
      * Returns the name of the entity.
      * 
      * @return the entity's name.

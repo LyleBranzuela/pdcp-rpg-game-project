@@ -5,6 +5,8 @@
  */
 package CUI.Stages;
 
+import CUI.Entity_Package.Player;
+
 /**
  * Abstract parent class for all the stages.
  *
@@ -12,7 +14,7 @@ package CUI.Stages;
  */
 public abstract class Stage
 {
-
+    Player currentPlayer;
     protected int stageLevel;
 
     /**
@@ -27,8 +29,9 @@ public abstract class Stage
 
     /**
      * Abstract function to be filled with to initiate the stage rooms.
+     * @param player
      */
-    abstract public void initiateStage();
+    abstract public void initiateStage(Player player);
 
     /**
      * Returns the current stage the game is in.
@@ -40,7 +43,7 @@ public abstract class Stage
     {
         // Default Stage
         this.stageLevel = currentStageLevel;
-        Stage tempStage = null;
+        Stage tempStage = new Stage_1();
         
         switch (this.stageLevel)
         {
@@ -64,11 +67,7 @@ public abstract class Stage
                 System.out.println("Error finding the stage.");
                 break;
         }
-
-        if (tempStage == null)
-        {
-            tempStage.initiateStage();
-        }
+        
         return tempStage;
     }
 }

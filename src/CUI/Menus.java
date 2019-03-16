@@ -16,20 +16,19 @@ import java.util.Scanner;
  */
 public class Menus
 {
-
-    Stage currentStage;
-    Player currentPlayer;
+    Player player;
 
     /**
-     *
+     * Constructor of the Menu, creates the player object, and takes the save list.
      */
     public Menus()
     {
+        this.player = new Player("John");
         SaveLoad.getSaveList();
     }
 
     /**
-     * Initializes the Menu
+     * Initializes the Menu.
      */
     public void initializeMenu()
     {
@@ -45,31 +44,38 @@ public class Menus
                 "Exit",
                 "==============="
             };
-            
+
             switch (UtilityMethods.setChoices(Menu))
             {
+                // New Game
                 case 1:
+                    System.out.println(this.player.getName());
                     UtilityMethods.clearScreen();
                     newGame();
+                    exit = true;
                     break;
 
+                // Load Game
                 case 2:
                     UtilityMethods.clearScreen();
+                    loadCharacterMenu();
                     exit = true;
                     break;
 
+                // Tutorial
                 case 3:
                     UtilityMethods.clearScreen();
-                    exit = true;
+                    exit = false;
                     break;
-                    
+
+                // Exit
                 case 4:
                     UtilityMethods.clearScreen();
                     System.out.println("Exiting the Game...");
-                    exit = false;
-                    System.exit(0); 
+                    exit = true;
+                    System.exit(0);
                     break;
-                
+
                 default:
                     exit = false;
                     break;
@@ -79,39 +85,100 @@ public class Menus
     }
 
     /**
-     *
-     * @return
+     * Creates a new player in a new game.
      */
-    public Player newGame()
+    private void newGame()
     {
-        this.currentPlayer = new Player("Placeholder");
-        // Default stage for the player.
-        this.currentStage = new Stage_1();
-        this.currentPlayer.setCurrentStageLevel(this.currentStage);
+        Scanner scan = new Scanner(System.in);
+        String name;
+        System.out.println("============================================================");
+        System.out.print("Enter Your Name (Maximum of 10 Characters): ");
+        name = scan.nextLine();
+        while (name.length() > 10)
+        {
+            System.out.println("Please enter a name at max of 10 characters.");
+            System.out.println("============================================================");
+            System.out.print("Enter Your Name (Maximum of 10 Characters): ");
+            name = scan.nextLine();
+        }
 
-        return this.currentPlayer;
+        Player newPlayer = new Player(name);
+        Stage_1 newStage = new Stage_1();
+        // Default stage for the player.
+        newPlayer.setCurrentStageLevel(newStage);
+
+        // Set the current player into the new player.
+        this.player = newPlayer;
+        System.out.println("============================================================");
+        System.out.println("Hello, " + this.player.getName() + "!");
+        newStage.initiateStage(this.player);
     }
 
     /**
-     *
-     * @return
+     * Loads the current character player.
      */
+    private void loadCharacterMenu()
+    {
+        Boolean back = false;
+        // Placeholder Stage
+        Stage stage = new Stage_1();
+
+        // Retrieving all Save Files
+        String[] saveList = new String[3];
+        for (int counter = 0; counter < 3; counter++)
+        {
+            saveList[0] = SaveLoad.getSaveList().get(counter).toString();
+        }
+
+        while (!back)
+        {
+            String[] loadMenu =
+            {
+                "===============\n   Save List   \n===============\n",
+                saveList[0],
+                saveList[1],
+                saveList[2],
+                "Back",
+                "==============="
+            };
+
+            int choice = UtilityMethods.setChoices(loadMenu);
+            switch (choice)
+            {
+                // Load 1st Save File
+                case 1:
+                // Load 2nd Save File
+                case 2:
+                // Load 3rd Save File
+                case 3:
+                    UtilityMethods.clearScreen();
+                    this.player = SaveLoad.getSaveList().get(choice - 1);
+                    stage = stage.getStage(this.player.getCurrentStageLevel());
+                    stage.initiateStage(this.player);
+                    System.out.println("Initiating Stage " + stage.getStageLevel() + "...");
+                    back = false;
+                    break;
+
+                // Back
+                case 4:
+                    UtilityMethods.clearScreen();
+                    initializeMenu();
+                    back = true;
+                    break;
+
+                default:
+                    back = false;
+                    break;
+            }
+        }
+
+    }
+
     /**
-     * public Player loadCharacterPart() { Scanner loadReader = new
-     * Scanner(System.in); UtilityMethods.clearScreen();
-     *
-     * System.out.println("==============="); System.out.println(" Save List ");
-     * System.out.println("==============="); System.out.println("[1]" +
-     * SaveLoad.getSaveList().get(0)); System.out.println("[2]" +
-     * SaveLoad.getSaveList().get(1)); System.out.println("[3]" +
-     * SaveLoad.getSaveList().get(2)); System.out.println("[4]Back");
-     * System.out.println("===============");
-     *
-     * this.currentPlayer = SaveLoad.loadCharacter(loadReader.nextInt());
-     * this.currentStage =
-     * currentStage.getStage(this.currentPlayer.getCurrentStageLevel());
-     *
-     * return this.currentPlayer; }
-     *
+     * Tutorial Screen in the Menus.
      */
+    private void tutorialScreen()
+    {
+
+    }
 }

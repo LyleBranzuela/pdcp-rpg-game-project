@@ -5,6 +5,8 @@
  */
 package CUI.Stages;
 
+import CUI.Entity_Package.Player;
+
 /**
  * Class for the Stage 1 of the Game.
  * @author lyleb and khoap
@@ -12,7 +14,7 @@ package CUI.Stages;
 public class Stage_1 extends Stage
 {
     @Override
-    public void initiateStage()
+    public void initiateStage(Player player)
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
