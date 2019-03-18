@@ -14,7 +14,6 @@ import CUI.Entity_Package.Player;
  */
 public abstract class Stage
 {
-    Player currentPlayer;
     protected int stageLevel;
 
     /**
@@ -29,6 +28,7 @@ public abstract class Stage
 
     /**
      * Abstract function to be filled with to initiate the stage rooms.
+     * 
      * @param player
      */
     abstract public void initiateStage(Player player);
