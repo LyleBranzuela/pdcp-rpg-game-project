@@ -11,16 +11,19 @@ import java.util.ArrayList;
 
 /**
  * Class for the main character of the game.
+ *
  * @author lyleb and khoap
  */
 public class Player extends Entity
 {
+
     public ArrayList<Item> itemsHeld;
     public int stageLevel;
+    public Stage playerStage;
 
     /**
      * Constructor for the game player.
-     * 
+     *
      * @param name name of the player chosen by the user.
      */
     public Player(String name)
@@ -31,7 +34,7 @@ public class Player extends Entity
 
     /**
      * Picks up the selected item from the parameter.
-     * 
+     *
      * @param item item to be picked up.
      */
     public void pickupItem(Item item)
@@ -42,7 +45,7 @@ public class Player extends Entity
 
     /**
      * Uses the specified item in the inventory.
-     * 
+     *
      * @param index what item from the list.
      */
     public void useItem(int index)
@@ -54,7 +57,7 @@ public class Player extends Entity
 
     /**
      * Opens the character's inventory if there's something in.
-     * 
+     *
      * @return gives back the inventory.
      */
     public ArrayList<Item> openCharacterInventory()
@@ -70,21 +73,25 @@ public class Player extends Entity
             return this.itemsHeld;
         }
     }
-    
+
     /**
      * Sets the stage level the character is in.
-     * 
-     * @param stage 
+     *
+     * @param stage
      */
-    public void setCurrentStageLevel(Stage stage) {
+    public void setCurrentStageLevel(Stage stage)
+    {
         this.stageLevel = stage.getStageLevel();
+        this.playerStage = stage;
     }
-    
+
     /**
-     * 
-     * @return 
+     * Returns the current stage of the player.
+     *
+     * @return stage of the player object.
      */
-    public int getCurrentStageLevel() {
-        return this.stageLevel;
+    public Stage getCurrentStage()
+    {
+        return this.playerStage;
     }
 }

@@ -49,7 +49,6 @@ public class Menus
             {
                 // New Game
                 case 1:
-                    System.out.println(this.player.getName());
                     UtilityMethods.clearScreen();
                     newGame();
                     exit = true;
@@ -102,16 +101,14 @@ public class Menus
             name = scan.nextLine();
         }
 
-        Player newPlayer = new Player(name);
-        Stage_1 newStage = new Stage_1();
-        // Default stage for the player.
-        newPlayer.setCurrentStageLevel(newStage);
-
-        // Set the current player into the new player.
-        this.player = newPlayer;
+        // Create a new Object of the Player
+        this.player = new Player(name);
+        // Default stage for a new player.
+        this.player.setCurrentStageLevel(new Stage_1());
         System.out.println("============================================================");
         System.out.println("Hello, " + this.player.getName() + "!");
-        newStage.initiateStage(this.player);
+        System.out.println("============================================================");
+        this.player.getCurrentStage().initiateStage(this.player);
     }
 
     /**
@@ -153,8 +150,7 @@ public class Menus
                 case 3:
                     UtilityMethods.clearScreen();
                     this.player = SaveLoad.getSaveList().get(choice - 1);
-                    stage = stage.getStage(this.player.getCurrentStageLevel());
-                    stage.initiateStage(this.player);
+                    this.player.getCurrentStage().initiateStage(this.player);
                     System.out.println("Initiating Stage " + stage.getStageLevel() + "...");
                     back = false;
                     break;
