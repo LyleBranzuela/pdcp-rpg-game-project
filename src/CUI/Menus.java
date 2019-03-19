@@ -8,7 +8,10 @@ package CUI;
 import CUI.Entity_Package.Player;
 import CUI.Stages.Stage;
 import CUI.Stages.Stage_1;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+
 
 /**
  *
@@ -19,19 +22,26 @@ public class Menus
     Player player;
 
     /**
-     * Constructor of the Menu, creates the player object, and takes the save list.
+     * Constructor of the Menu, creates the player object.
      */
-    public Menus()
+    public Menus() 
     {
         this.player = new Player("John");
-        SaveLoad.getSaveList();
     }
 
     /**
      * Initializes the Menu.
      */
-    public void initializeMenu()
+    public void initializeMenu()  
     {
+        try {
+           SaveLoad.initializeSaveList();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class" + e + "not found");
+        } catch (IOException e) {
+            System.out.println("Error reading from file " + e);
+        }
+        
         boolean exit = false;
         while (!exit)
         {
@@ -49,27 +59,23 @@ public class Menus
             {
                 // New Game
                 case 1:
-                    UtilityMethods.clearScreen();
                     newGame();
                     exit = true;
                     break;
 
                 // Load Game
                 case 2:
-                    UtilityMethods.clearScreen();
                     loadCharacterMenu();
                     exit = true;
                     break;
 
                 // Tutorial
                 case 3:
-                    UtilityMethods.clearScreen();
                     exit = false;
                     break;
 
                 // Exit
                 case 4:
-                    UtilityMethods.clearScreen();
                     System.out.println("Exiting the Game...");
                     exit = true;
                     System.exit(0);
@@ -93,11 +99,13 @@ public class Menus
         System.out.println("============================================================");
         System.out.print("Enter Your Name (Maximum of 10 Characters): ");
         name = scan.nextLine();
-        while (name.length() > 10)
+        while (name.length() > 10 || name.length() < 1)
         {
-            System.out.println("Please enter a name at max of 10 characters.");
+            System.out.println();
             System.out.println("============================================================");
-            System.out.print("Enter Your Name (Maximum of 10 Characters): ");
+            System.out.println("[Please enter a name at max of 10 or min of 1 character/s.]");
+            System.out.println("============================================================");
+            System.out.print("Enter Your Name: ");
             name = scan.nextLine();
         }
 
@@ -105,8 +113,6 @@ public class Menus
         this.player = new Player(name);
         // Default stage for a new player.
         this.player.setCurrentStageLevel(new Stage_1());
-        System.out.println("============================================================");
-        System.out.println("Hello, " + this.player.getName() + "!");
         System.out.println("============================================================");
         this.player.getCurrentStage().initiateStage(this.player);
     }
@@ -116,7 +122,7 @@ public class Menus
      */
     private void loadCharacterMenu()
     {
-        Boolean back = false;
+        Boolean breakLoop = false;
         // Placeholder Stage
         Stage stage = new Stage_1();
 
@@ -124,14 +130,21 @@ public class Menus
         String[] saveList = new String[3];
         for (int counter = 0; counter < 3; counter++)
         {
-            saveList[0] = SaveLoad.getSaveList().get(counter).toString();
+            if(SaveLoad.loadCharacter(counter) != null)
+            {
+                saveList[counter] = SaveLoad.loadCharacter(counter).getName();
+            }
+            else
+            {
+                saveList[counter] = "Empty";
+            }
         }
 
-        while (!back)
+        while (!breakLoop)
         {
             String[] loadMenu =
             {
-                "===============\n   Save List   \n===============\n",
+                "\n===============\n   Save List   \n===============\n",
                 saveList[0],
                 saveList[1],
                 saveList[2],
@@ -148,22 +161,31 @@ public class Menus
                 case 2:
                 // Load 3rd Save File
                 case 3:
-                    UtilityMethods.clearScreen();
-                    this.player = SaveLoad.getSaveList().get(choice - 1);
-                    this.player.getCurrentStage().initiateStage(this.player);
-                    System.out.println("Initiating Stage " + stage.getStageLevel() + "...");
-                    back = false;
+                    if (SaveLoad.loadCharacter(choice-1) == null)
+                    {
+                        System.out.println("[Please choose a non-empty save.]");
+                        breakLoop = false;
+                    }
+                    else
+                    {
+                        this.player = SaveLoad.loadCharacter(choice - 1);
+                        this.player.getCurrentStage().initiateStage(this.player);
+                        System.out.println("============================================================");
+                        System.out.println("Initiating Stage " + stage.getStageLevel() + "...");
+                        System.out.println("============================================================");
+                        breakLoop = true;
+                    }
                     break;
 
                 // Back
                 case 4:
-                    UtilityMethods.clearScreen();
+                    System.out.println();
+                    breakLoop = true;
                     initializeMenu();
-                    back = true;
                     break;
 
                 default:
-                    back = false;
+                    breakLoop = false;
                     break;
             }
         }
@@ -175,6 +197,6 @@ public class Menus
      */
     private void tutorialScreen()
     {
-
+        
     }
 }

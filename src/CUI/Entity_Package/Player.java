@@ -5,8 +5,8 @@
  */
 package CUI.Entity_Package;
 
-import CUI.Items.Item;
-import CUI.Stages.Stage;
+import CUI.Items.*;
+import CUI.Stages.*;
 import java.util.ArrayList;
 
 /**
@@ -22,13 +22,14 @@ public class Player extends Entity
     public Stage playerStage;
 
     /**
-     * Constructor for the game player.
+     * Override Constructor for the game player.
      *
      * @param name name of the player chosen by the user.
      */
     public Player(String name)
     {
-        super(name, 10);
+        super(name, 100);
+        this.playerStage = new Stage_1();
         this.stageLevel = 1;
     }
 
