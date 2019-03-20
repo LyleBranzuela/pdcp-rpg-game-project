@@ -33,7 +33,7 @@ public class Stage_1 extends Stage
         try
         {
             // First Paragraph - Intro
-            System.out.println("You wake up to find yourself locked in a laboratory.");
+            System.out.println("You wake up to find yourself locked in a prison cell");
             Thread.sleep(2000);
             System.out.println("You vividly remember what happened last night.");
             Thread.sleep(2000);
@@ -102,7 +102,7 @@ public class Stage_1 extends Stage
             System.out.println("...");
             Thread.sleep(4000);
             System.out.println("============================================================================");
-            System.out.println("The lock came off as the door opens to two men with their backs against you.");
+            System.out.println("The lock came off, you peaked through the door to see three patrolling guards.");
             System.out.println("============================================================================");
             this.isCompleted = true;
             // Sets the stage level into Stage 2 and Iniate it with the Player Object
