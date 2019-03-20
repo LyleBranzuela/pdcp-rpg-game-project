@@ -28,7 +28,7 @@ public class Player extends Entity
      */
     public Player(String name)
     {
-        super(name, 100);
+        super(name, 1);
         this.playerStage = new Stage_1();
         this.stageLevel = 1;
     }

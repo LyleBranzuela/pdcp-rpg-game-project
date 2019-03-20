@@ -5,14 +5,15 @@
  */
 package CUI.Entity_Package;
 
+import java.io.Serializable;
+
 /**
  * Abstract class for the Entity.
  *
  * @author lyleb and khoap
  */
-public abstract class Entity
+public abstract class Entity implements Serializable
 {
-
     public String name;
     protected int health;
     protected int x_coord, y_coord;

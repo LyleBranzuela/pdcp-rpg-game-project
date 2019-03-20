@@ -6,13 +6,14 @@
 package CUI.Stages;
 
 import CUI.Entity_Package.Player;
+import java.io.Serializable;
 
 /**
  * Abstract parent class for all the stages.
  *
  * @author lyleb and khoap
  */
-public abstract class Stage
+public abstract class Stage implements Serializable
 {
     protected int stageLevel;
 

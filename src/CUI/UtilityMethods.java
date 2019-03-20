@@ -5,6 +5,9 @@
  */
 package CUI;
 
+import CUI.Entity_Package.Player;
+import CUI.Stages.Stage;
+import CUI.Stages.Stage_1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,6 +17,7 @@ import java.util.Scanner;
  */
 public class UtilityMethods
 {
+
     /**
      * Clears the console screen.
      */
@@ -22,30 +26,31 @@ public class UtilityMethods
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-    
+
     public static int setChoices(String[] event)
     {
         Scanner reader = new Scanner(System.in);
         int selector = 0;
         boolean scanCheck = false;
-        
+
         if (event.length > 6 || event.length < 6)
         {
             System.out.println("ERROR, EVENT PARAMETER IS WRONG. (No. of Events:" + event.length + ")");
         }
-        System.out.print(event[0]);  
+        System.out.print(event[0]);
         System.out.println("[1]" + event[1]);
         System.out.println("[2]" + event[2]);
         System.out.println("[3]" + event[3]);
         System.out.println("[4]" + event[4]);
         System.out.println(event[5]);
         System.out.print("Action: ");
-       
-      
-        while(!scanCheck && reader.hasNextInt()) {
-            try {
+
+        while (!scanCheck && reader.hasNextInt())
+        {
+            try
+            {
                 selector = reader.nextInt();
-                switch(selector)
+                switch (selector)
                 {
                     case 1:
                         return 1;
@@ -66,10 +71,12 @@ public class UtilityMethods
                         return 0;
                 }
             }
-            catch (InputMismatchException  e) {
-                 System.out.print("\n[Please only input a number ranging 1-4!]\n\n");
+            catch (InputMismatchException e)
+            {
+                System.out.print("\n[Please only input a number ranging 1-4!]\n\n");
             }
         }
         return 0;
     }
+
 }

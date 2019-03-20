@@ -8,10 +8,8 @@ package CUI;
 import CUI.Entity_Package.Player;
 import CUI.Stages.Stage;
 import CUI.Stages.Stage_1;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-
 
 /**
  *
@@ -19,12 +17,13 @@ import java.util.Scanner;
  */
 public class Menus
 {
+
     Player player;
 
     /**
      * Constructor of the Menu, creates the player object.
      */
-    public Menus() 
+    public Menus()
     {
         this.player = new Player("John");
     }
@@ -32,16 +31,21 @@ public class Menus
     /**
      * Initializes the Menu.
      */
-    public void initializeMenu()  
+    public void initializeMenu()
     {
-        try {
-           SaveLoad.initializeSaveList();
-        } catch (ClassNotFoundException e) {
+        try
+        {
+            SaveLoad.initializeSaveList();
+        }
+        catch (ClassNotFoundException e)
+        {
             System.out.println("Class" + e + "not found");
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.out.println("Error reading from file " + e);
         }
-        
+
         boolean exit = false;
         while (!exit)
         {
@@ -120,25 +124,13 @@ public class Menus
     /**
      * Loads the current character player.
      */
-    private void loadCharacterMenu()
+    public void loadCharacterMenu()
     {
         Boolean breakLoop = false;
         // Placeholder Stage
         Stage stage = new Stage_1();
-
-        // Retrieving all Save Files
-        String[] saveList = new String[3];
-        for (int counter = 0; counter < 3; counter++)
-        {
-            if(SaveLoad.loadCharacter(counter) != null)
-            {
-                saveList[counter] = SaveLoad.loadCharacter(counter).getName();
-            }
-            else
-            {
-                saveList[counter] = "Empty";
-            }
-        }
+        // Get Save List 
+        String[] saveList = SaveLoad.getSaveList();
 
         while (!breakLoop)
         {
@@ -161,7 +153,7 @@ public class Menus
                 case 2:
                 // Load 3rd Save File
                 case 3:
-                    if (SaveLoad.loadCharacter(choice-1) == null)
+                    if (SaveLoad.loadCharacter(choice - 1) == null)
                     {
                         System.out.println("[Please choose a non-empty save.]");
                         breakLoop = false;
@@ -189,7 +181,69 @@ public class Menus
                     break;
             }
         }
+    }
 
+    /**
+     * Saves the current character player. 
+     * Only shows up on the game over screen.
+     *
+     * @param player which player to save.
+     */
+    public void saveCharacterMenu(Player player)
+    {
+        Boolean breakLoop = false;
+
+        // Retrieving all Save Files
+        String[] saveList = SaveLoad.getSaveList();
+
+        while (!breakLoop)
+        {
+            String[] saveMenu =
+            {
+                "\n===============\n   Save List   \n===============\n",
+                saveList[0],
+                saveList[1],
+                saveList[2],
+                "Back",
+                "==============="
+            };
+
+            int choice = UtilityMethods.setChoices(saveMenu);
+            switch (choice)
+            {
+                // Save at the 1st Save File
+                case 1:
+                // Save at the 2nd Save File
+                case 2:
+                // Save at the 3rd Save File
+                case 3:
+                    try
+                    {
+                        SaveLoad.saveCharacter(choice - 1, player);
+                        System.out.println("============================================================");
+                        System.out.println("Character " + player.getName() + " Saved!");
+                        System.out.println("============================================================");
+                        breakLoop = true;
+                    }
+                    catch (IOException e)
+                    {
+                        System.out.println("Error, at " + e);
+                        breakLoop = false;
+                    }
+                    break;
+
+                // Back
+                case 4:
+                    System.out.println();
+                    GameOverScreen.printGameOverScreen(player);
+                    breakLoop = true;
+                    break;
+
+                default:
+                    breakLoop = false;
+                    break;
+            }
+        }
     }
 
     /**
@@ -197,6 +251,6 @@ public class Menus
      */
     private void tutorialScreen()
     {
-        
+
     }
 }

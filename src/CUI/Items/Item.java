@@ -5,11 +5,13 @@
  */
 package CUI.Items;
 
+import java.io.Serializable;
+
 /**
  * Abstract parent class for the Items.
  * @author lyleb and khoap
  */
-public abstract class Item
+public abstract class Item implements Serializable
 {
     public String name;
     

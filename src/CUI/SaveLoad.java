@@ -22,7 +22,7 @@ public class SaveLoad
 {
 
     private static ArrayList<Player> characterSaveList = new ArrayList<>(3);
-    private static File f;
+    private static File f = new File("SaveFile");
 
     /**
      * Saves the current character selected.
@@ -65,9 +65,6 @@ public class SaveLoad
      */
     public static void initializeSaveList() throws IOException, ClassNotFoundException
     {
-        // Initialize the Attributes
-        f = new File("SaveFile");
-
         // Load the Save List from the SaveFile to characterSaveList ArrayList
         ArrayList<Player> list = new ArrayList();
         Player tempPlayer = null;
@@ -80,6 +77,49 @@ public class SaveLoad
         }
         ois.close();
         characterSaveList = list;
-
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public static String[] getSaveList() 
+    {
+        // Retrieving all Save Files
+        String[] saveList = new String[3];
+        for (int counter = 0; counter < 3; counter++)
+        {
+            if(SaveLoad.loadCharacter(counter) != null)
+            {
+                saveList[counter] = loadCharacter(counter).getName();
+            }
+            else
+            {
+                saveList[counter] = "Empty";
+            }
+        }
+        
+        return saveList;
+    }
+    
+    /**
+     * Reset The Save File.
+     * @throws java.io.IOException
+     */
+    public static void resetSaveFile() throws IOException 
+    {
+        characterSaveList.removeAll(characterSaveList);
+        characterSaveList.add(null);
+        characterSaveList.add(null);
+        characterSaveList.add(null);
+        
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+        oos.writeInt(characterSaveList.size());
+        for (Player player : characterSaveList)
+        {
+            oos.writeObject(player);
+        }
+        oos.flush();
+        oos.close();
     }
 }

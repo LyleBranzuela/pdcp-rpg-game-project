@@ -6,15 +6,11 @@
 package CUI.Items;
 
 /**
- * An interface for items that are combinable.
+ * An interface for items that are weapons.
  * @author lyleb and khoap
  */
-public interface Combinables
+public interface Weapon
 {
-    /**
-     * 
-     * @param item
-     * @param otherItem 
-     */
-    public void combineItems(Item item, Item otherItem);
+    public int attackEntity();
+    public int parryAttack();
 }
