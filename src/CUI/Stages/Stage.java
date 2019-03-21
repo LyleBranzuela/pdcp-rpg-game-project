@@ -65,7 +65,7 @@ public abstract class Stage implements Serializable
                 break;
 
             default:
-                System.out.println("Error finding the stage.");
+                System.out.println("Error finding stage files.");
                 break;
         }
         
