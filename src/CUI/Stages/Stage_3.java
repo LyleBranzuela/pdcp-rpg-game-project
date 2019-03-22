@@ -17,7 +17,7 @@ public class Stage_3 extends Stage
     @Override
     public void initiateStage(Player player)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 }
