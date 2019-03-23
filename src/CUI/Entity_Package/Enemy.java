@@ -11,5 +11,6 @@ package CUI.Entity_Package;
  */
 public interface Enemy
 {
-    
+    public void attackPlayer(Player player);
+    public void attackedByPlayer(int damage);
 }

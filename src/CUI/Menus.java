@@ -54,7 +54,7 @@ public class Menus
                 "===============\n   Game Menu   \n===============\n",
                 "New Game",
                 "Load Game",
-                "Tutorial",
+                "Reset Saves",
                 "Exit",
                 "==============="
             };
@@ -75,11 +75,23 @@ public class Menus
 
                 // Tutorial
                 case 3:
-                    exit = false;
-                    break;
+                {
+                    try
+                    {
+                        SaveLoad.resetSaveFile();
+                        System.out.println("");
+                    }
+                    catch (IOException ex)
+                    {
+                        System.out.println("Error: " + ex);
+                    }
+                }
+                exit = false;
+                break;
 
                 // Exit
                 case 4:
+                    System.out.println("===============");
                     System.out.println("Exiting the Game...");
                     exit = true;
                     System.exit(0);
@@ -136,7 +148,7 @@ public class Menus
         {
             String[] loadMenu =
             {
-                "\n===============\n   Save List   \n===============\n",
+                "\n===============\n   Load List   \n===============\n",
                 saveList[0],
                 saveList[1],
                 saveList[2],
@@ -184,8 +196,8 @@ public class Menus
     }
 
     /**
-     * Saves the current character player. 
-     * Only shows up on the game over screen.
+     * Saves the current character player. Only shows up on the game over
+     * screen.
      *
      * @param player which player to save.
      */
@@ -220,9 +232,11 @@ public class Menus
                     try
                     {
                         SaveLoad.saveCharacter(choice - 1, player);
-                        System.out.println("============================================================");
-                        System.out.println("Character " + player.getName() + " Saved!");
-                        System.out.println("============================================================");
+                        System.out.println();
+                        System.out.println("=============================");
+                        System.out.println("[Character " + player.getName() + " Saved!]");
+                        System.out.println("=============================");
+                        System.out.println();
                         breakLoop = true;
                     }
                     catch (IOException e)
@@ -244,13 +258,5 @@ public class Menus
                     break;
             }
         }
-    }
-
-    /**
-     * Tutorial Screen in the Menus.
-     */
-    private void tutorialScreen()
-    {
-
     }
 }

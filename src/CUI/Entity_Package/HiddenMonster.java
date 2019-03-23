@@ -6,20 +6,20 @@
 package CUI.Entity_Package;
 
 /**
- * 
- * @author lyleb
+ *
+ * @author lyleb and khoap
  */
-public class Monster extends Entity implements Enemy
+public class HiddenMonster extends Entity implements Enemy
 {
-    public Monster(String name)
+    public HiddenMonster(String name, int health)
     {
-        super(name, 3);
+        super(name, health);
     }
 
     @Override
     public void attackPlayer(Player player)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        player.setHealth(health);
     }
 
     @Override

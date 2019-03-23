@@ -5,12 +5,19 @@
  */
 package CUI.Items;
 
+import CUI.Entity_Package.Enemy;
+import CUI.Entity_Package.HiddenMonster;
+import CUI.Entity_Package.Monster;
+
 /**
  * Item subclass for the Barbed Bat Weapon.
+ *
  * @author lyleb and khoap
  */
 public class BarbedBat extends Item implements Weapon
 {
+
+    private final int weaponDamage = 0;
 
     /**
      * Constructor for the Barbed Bat Weapon Item.
@@ -30,23 +37,37 @@ public class BarbedBat extends Item implements Weapon
     }
 
     /**
+     * Attack an entity with a barbed bat.
      *
-     * @return
+     * @param enemy what enemy is getting attacked.
+     * @return the damage made.
      */
     @Override
-    public int attackEntity()
+    public int attackEnemy(Enemy enemy)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (enemy instanceof Monster)
+        {
+            return 0;
+        }
+        else if (enemy instanceof HiddenMonster)
+        {
+            return 0;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     /**
+     * Parry the attack of the enemy monster with a barbed bat.
      *
-     * @return
+     * @return the damage taken.
      */
     @Override
     public int parryAttack()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 0;
     }
 
 }

@@ -29,7 +29,10 @@ public class Stage_1 extends Stage
     @Override
     public void initiateStage(Player player)
     {
-        Scanner scan = new Scanner(System.in);
+        // Iniating the Stage's Default Attributes
+        this.isCompleted = false;
+        this.userInput = 0;
+
         try
         {
             // First Paragraph - Intro
@@ -86,6 +89,7 @@ public class Stage_1 extends Stage
             Thread.sleep(2000);
             System.out.print("Enter the passcode: ");
 
+            Scanner scan = new Scanner(System.in);
             while (this.userInput != this.password)
             {
                 this.userInput = scan.nextInt();
@@ -99,11 +103,11 @@ public class Stage_1 extends Stage
                 }
             }
             Thread.sleep(2000);
-            System.out.println("...");
+            System.out.print("...");
             Thread.sleep(4000);
-            System.out.println("============================================================================");
+            System.out.println("==============================================================================");
             System.out.println("The lock came off, you peaked through the door to see three patrolling guards.");
-            System.out.println("============================================================================");
+            System.out.println("==============================================================================");
             this.isCompleted = true;
             // Sets the stage level into Stage 2 and Iniate it with the Player Object
             player.setCurrentStageLevel(new Stage_2());

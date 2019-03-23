@@ -14,21 +14,25 @@ import CUI.Entity_Package.Player;
  */
 public class GameOverScreen
 {
+
     public static String deathMessage;
-    
+
     /**
-     * Used if there's no death message sent, which uses the previous death message.
-     * 
+     * Used if there's no death message sent, which uses the previous death
+     * message.
+     *
      * For the save menu as it doesn't need a death message.
+     *
      * @param player player to be sent to the overloaded print game over screen.
      */
-    public static void printGameOverScreen(Player player){
+    public static void printGameOverScreen(Player player)
+    {
         printGameOverScreen(player, deathMessage);
     }
-    
+
     /**
      * Prints the Game Over Screen on the CUI.
-     * 
+     *
      * @param player player object the user is currently playing as.
      * @param deathMessage death message of the specific stage.
      */
@@ -37,15 +41,20 @@ public class GameOverScreen
         boolean exit = false;
         Menus menu = new Menus();
         GameOverScreen.deathMessage = deathMessage;
-        
+        String border = "";
+        for (int counter = 0; counter < deathMessage.length(); counter++)
+        {
+            border = border.concat("=");
+        }
+
         String[] GameOver =
         {
-            "===============\n   Game Over\n" + deathMessage + "===============\n",
+            border + "\n" + deathMessage + "\n" + border + "\n",
             "Retry Stage",
             "Save Game",
             "Main Menu",
             "Exit",
-            "==============="
+            border
         };
 
         while (!exit)
@@ -54,18 +63,21 @@ public class GameOverScreen
             {
                 // Retry Stage
                 case 1:
-                    System.out.println("Retrying Stage...");
+                    System.out.println(border);
+                    System.out.println("[Retrying Stage...]");
                     player.getCurrentStage().initiateStage(player);
                     exit = true;
                     break;
 
                 // Save Game
                 case 2:
+                    System.out.println();
                     menu.saveCharacterMenu(player);
                     break;
 
                 // Main Menu
                 case 3:
+                    System.out.println();
                     exit = true;
                     menu.initializeMenu();
                     break;

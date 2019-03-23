@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class Player extends Entity
 {
-
     public ArrayList<Item> itemsHeld;
     public int stageLevel;
     public Stage playerStage;
