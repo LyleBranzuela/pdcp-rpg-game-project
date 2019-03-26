@@ -16,8 +16,12 @@ import java.util.ArrayList;
  */
 public class Player extends Entity
 {
+<<<<<<< HEAD
 
     public ArrayList<Item> itemsHeld  = new ArrayList();
+=======
+    public ArrayList<Item> itemsHeld;
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     public int stageLevel;
     public Stage playerStage;
 

@@ -1,4 +1,6 @@
 Walkthrough for the Game:
-===============================
-1) Stage 1 [Escape Room] - 1412
-2) Stage 2 
+=======================================================================
+1) Stage 1 [Escape Room] - 1412 is the passcode.
+2) Stage 2 [Guard Watch] - Go to the opposite direction the Guard goes.
+3) Stage 3 [Weapon Room] - 
+4) Stage 4 [Boss Room] - 

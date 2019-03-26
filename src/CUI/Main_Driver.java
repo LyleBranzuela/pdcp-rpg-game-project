@@ -5,10 +5,8 @@
  */
 package CUI;
 
-import java.io.IOException;
-
-/**
- * Driver class for th1 e whole CUI.
+/** 
+ * Driver class for the whole CUI.
  *
  * @author lyleb and khoap
  */

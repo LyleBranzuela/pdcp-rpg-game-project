@@ -22,7 +22,7 @@ public class SaveLoad
 {
 
     private static ArrayList<Player> characterSaveList = new ArrayList<>(3);
-    private static File f = new File("SaveFile");
+    private static File f = new File("SaveFiles.txt");
 
     /**
      * Saves the current character selected.
@@ -60,8 +60,8 @@ public class SaveLoad
     /**
      * Returns the list of the save list of the program.
      *
-     * @throws java.io.FileNotFoundException
-     * @throws java.lang.ClassNotFoundException
+     * @throws java.io.FileNotFoundException when a file is not found.
+     * @throws java.lang.ClassNotFoundException when a class is not found.
      */
     public static void initializeSaveList() throws IOException, ClassNotFoundException
     {
@@ -76,12 +76,14 @@ public class SaveLoad
             list.add(tempPlayer);
         }
         ois.close();
+            
         characterSaveList = list;
     }
     
     /**
+     * Turns the save list into a string for printing.
      * 
-     * @return 
+     * @return the string version of the save list.
      */
     public static String[] getSaveList() 
     {
@@ -98,16 +100,16 @@ public class SaveLoad
                 saveList[counter] = "Empty";
             }
         }
-        
         return saveList;
     }
     
     /**
      * Reset The Save File.
-     * @throws java.io.IOException
+     * @throws java.io.IOException if there's an error in the File IO.
      */
     public static void resetSaveFile() throws IOException 
     {
+        System.out.println("[Resetting Saves...]");
         characterSaveList.removeAll(characterSaveList);
         characterSaveList.add(null);
         characterSaveList.add(null);

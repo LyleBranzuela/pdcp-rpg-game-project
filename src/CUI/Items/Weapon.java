@@ -5,12 +5,19 @@
  */
 package CUI.Items;
 
+import CUI.Entity_Package.Enemy;
+
 /**
  * An interface for items that are weapons.
  * @author lyleb and khoap
  */
 public interface Weapon
 {
+<<<<<<< HEAD
     public int attackEntity();
     public int parrySeq();
+=======
+    public int attackEnemy(Enemy enemy);
+    public int parryAttack();
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
 }
