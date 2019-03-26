@@ -26,7 +26,7 @@ public class Blindfold extends Item
         if (this.worn == false)
         {
             this.worn = true;
-            System.out.println("You wear the blindfold.");
+            System.out.println("You have worn the blindfold.");
         }
         else
         {
@@ -37,7 +37,12 @@ public class Blindfold extends Item
 
     public void removeBlindfold()
     {
-        System.out.println("You remove the blindfold.");
+        System.out.println("You have removed the blindfold.");
         this.worn = false;
+    }
+
+    @Override
+    public String printDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

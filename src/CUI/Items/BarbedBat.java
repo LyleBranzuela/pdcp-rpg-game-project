@@ -11,7 +11,8 @@ package CUI.Items;
  */
 public class BarbedBat extends Item implements Weapon
 {
-
+    int batDmg = 1;
+    int batSeq = 1;
     /**
      * Constructor for the Barbed Bat Weapon Item.
      */
@@ -36,7 +37,7 @@ public class BarbedBat extends Item implements Weapon
     @Override
     public int attackEntity()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return batDmg; // Returns damage of the bat for use in damage calculation.
     }
 
     /**
@@ -44,9 +45,15 @@ public class BarbedBat extends Item implements Weapon
      * @return
      */
     @Override
-    public int parryAttack()
+    public int parrySeq()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return batSeq; //Returns int to adjust parry difficulty
+    }
+    
+    @Override
+    public String printDescription() 
+    {
+        return "A light wooden barbed bat. Has plenty of maneuverability but lacks damage.";
     }
 
 }

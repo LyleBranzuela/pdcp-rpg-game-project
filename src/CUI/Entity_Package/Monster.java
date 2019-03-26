@@ -15,5 +15,4 @@ public class Monster extends Entity
     {
         super(name, 3);
     }
-    
 }

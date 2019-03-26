@@ -11,12 +11,14 @@ package CUI.Items;
  */
 public class Daggers extends Item implements Weapon
 {
+    int dagDmg = 2;
+    int dagSeq = 2;
     /**
      * Constructor for the Daggers Weapon Item.
      */
     public Daggers()
     {
-        super("Daggers");
+        super("Dual Daggers");
     }
 
     /**
@@ -35,7 +37,7 @@ public class Daggers extends Item implements Weapon
     @Override
     public int attackEntity()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dagDmg; //Returns damage of the dagger for use in damage calculation
     }
 
     /**
@@ -43,9 +45,15 @@ public class Daggers extends Item implements Weapon
      * @return 
      */
     @Override
-    public int parryAttack()
+    public int parrySeq()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dagSeq; //Returns int to adjust parry difficulty
+    }
+    
+    @Override
+    public String printDescription() 
+    {
+        return "A deadly pair of kukris. Medium damage and maneuverability.";
     }
 
 }

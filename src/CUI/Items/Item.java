@@ -37,4 +37,6 @@ public abstract class Item implements Serializable
     public String getName() {
         return this.name;
     }
+    
+    abstract public String printDescription();
 }

@@ -5,13 +5,16 @@
  */
 package CUI.Items;
 
+import CUI.Entity_Package.Monster;
+
 /**
  * Item subclass for the Machete Weapon.
  * @author lyleb and khoap
  */
 public class Machete extends Item implements Weapon
 {
-
+    int machDmg = 3;
+    int machSeq = 3;
     public Machete()
     {
         super("Machete");
@@ -26,13 +29,18 @@ public class Machete extends Item implements Weapon
     @Override
     public int attackEntity()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return machDmg; //Returns machete damage for damage calculation
     }
 
     @Override
-    public int parryAttack()
+    public int parrySeq()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return machSeq; //Returns int to adjust parry difficulty
+    }
+
+    @Override
+    public String printDescription() {
+        return "A hard-hitting weapon but lacks maneuverability due to its size and weight.";
     }
 
 }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Player extends Entity
 {
 
-    public ArrayList<Item> itemsHeld;
+    public ArrayList<Item> itemsHeld  = new ArrayList();
     public int stageLevel;
     public Stage playerStage;
 
@@ -43,7 +43,7 @@ public class Player extends Entity
         System.out.println("You picked up " + item.getName());
         this.itemsHeld.add(item);
     }
-
+    
     /**
      * Uses the specified item in the inventory.
      *
