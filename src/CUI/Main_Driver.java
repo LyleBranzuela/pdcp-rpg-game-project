@@ -10,8 +10,7 @@ package CUI;
 /**
  * 
  * Driver class for the whole CUI.
- *1
- * 
+ *
  * @author lyleb and khoap6
  */
 public class Main_Driver

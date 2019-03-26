@@ -14,16 +14,6 @@ import java.util.Scanner;
  */
 public class UtilityMethods
 {
-
-    /**
-     * Clears the console screen.
-     */
-    public static void clearScreen()
-    {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
-
     public static int setChoices(String[] event)
     {
         Scanner reader = new Scanner(System.in);
@@ -64,7 +54,6 @@ public class UtilityMethods
                     default:
                         System.out.print("[Choose a choice ranging from 1-4!]\n\n");
                         scanCheck = true;
-                        UtilityMethods.clearScreen();
                         return 0;
                 }
             }

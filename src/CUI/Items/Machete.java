@@ -5,12 +5,7 @@
  */
 package CUI.Items;
 
-<<<<<<< HEAD
-=======
 import CUI.Entity_Package.Enemy;
-import CUI.Entity_Package.HiddenMonster;
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
-import CUI.Entity_Package.Monster;
 
 /**
  * Item subclass for the Machete Weapon.
@@ -19,23 +14,25 @@ import CUI.Entity_Package.Monster;
  */
 public class Machete extends Item implements Weapon
 {
-<<<<<<< HEAD
-    int machDmg = 3;
-    int machSeq = 3;
-=======
 
-    private final int weaponDamage = 0;
+    private final int machDmg = 3;
+    private final int machSeq = 3;
 
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
+    /**
+     * Constructor for the Machete Weapon Item.
+     */
     public Machete()
     {
         super("Machete");
     }
 
-    @Override
+    /**
+     * Prints out the Machete Details when Used by the Player.
+     */
+    @Override 
     public void useItem()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        printDescription();
     }
 
     /**
@@ -47,22 +44,7 @@ public class Machete extends Item implements Weapon
     @Override
     public int attackEnemy(Enemy enemy)
     {
-<<<<<<< HEAD
-        return machDmg; //Returns machete damage for damage calculation
-=======
-        if (enemy instanceof Monster)
-        {
-            return 0;
-        }
-        else if (enemy instanceof HiddenMonster)
-        {
-            return 0;
-        }
-        else
-        {
-            return 0;
-        }
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
+        return this.machDmg; //Returns machete damage for damage calculation
     }
 
     /**
@@ -73,15 +55,18 @@ public class Machete extends Item implements Weapon
     @Override
     public int parrySeq()
     {
-<<<<<<< HEAD
-        return machSeq; //Returns int to adjust parry difficulty
+
+        return this.machSeq; //Returns int to adjust parry difficulty
     }
 
+    /**
+     * Prints out the description of the machete.
+     * 
+     * @return description of the machete.
+     */
     @Override
-    public String printDescription() {
+    public String printDescription()
+    {
         return "A hard-hitting weapon but lacks maneuverability due to its size and weight.";
-=======
-        return 0;
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     }
 }

@@ -6,8 +6,6 @@
 package CUI.Items;
 
 import CUI.Entity_Package.Enemy;
-import CUI.Entity_Package.HiddenMonster;
-import CUI.Entity_Package.Monster;
 
 /**
  * Item subclass for the Daggers Weapon.
@@ -15,13 +13,9 @@ import CUI.Entity_Package.Monster;
  */
 public class Daggers extends Item implements Weapon
 {
-<<<<<<< HEAD
-    int dagDmg = 2;
-    int dagSeq = 2;
-=======
-    private final int weaponDamage = 0;
+    private final int dagDmg = 2;
+    private final int dagSeq = 2;
     
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     /**
      * Constructor for the Daggers Weapon Item.
      */
@@ -31,12 +25,12 @@ public class Daggers extends Item implements Weapon
     }
 
     /**
-     * 
+     * Prints out the Daggers Details when Used by the Player.
      */
     @Override
     public void useItem()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        printDescription();
     }
 
     /**
@@ -48,21 +42,7 @@ public class Daggers extends Item implements Weapon
     @Override
     public int attackEnemy(Enemy enemy)
     {
-<<<<<<< HEAD
         return dagDmg; //Returns damage of the dagger for use in damage calculation
-=======
-         if (enemy instanceof Monster)
-        {
-            return 0;
-        }
-        else if (enemy instanceof HiddenMonster)
-        {
-            return 0;
-        }
-        else {
-            return 0;
-        }
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     }
     
     /**
@@ -73,17 +53,18 @@ public class Daggers extends Item implements Weapon
     @Override
     public int parrySeq()
     {
-<<<<<<< HEAD
         return dagSeq; //Returns int to adjust parry difficulty
     }
     
+    /**
+     * Prints out the description of the daggers.
+     * 
+     * @return the description of the daggers.
+     */
     @Override
     public String printDescription() 
     {
         return "A deadly pair of kukris. Medium damage and maneuverability.";
-=======
-        return 0;
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     }
 
 }

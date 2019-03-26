@@ -17,13 +17,11 @@ import java.util.Scanner;
  */
 public class Stage_2 extends Stage
 {
-    Player player;
-    Random rand = new Random();
-    String userInput;
-    String guardMovement;
-    boolean isCompleted;
-    boolean isValid;
-    boolean isCorrect;
+
+    private Player player;
+    private String userInput;
+    private String guardMovement;
+    private boolean isCompleted;
 
     /**
      * Generates a number for movement creation
@@ -32,8 +30,8 @@ public class Stage_2 extends Stage
      */
     public int genNum()
     {
+        Random rand = new Random();
         int number = rand.nextInt(2) + 1;
-
         return number;
     }
 
@@ -72,53 +70,53 @@ public class Stage_2 extends Stage
      */
     private boolean checkMove()
     {
-        this.isCorrect = false;
+        boolean isCorrect = false;
         switch (this.guardMovement)
         {
             case "S":
                 if (this.userInput.equalsIgnoreCase("W"))
                 {
-                    this.isCorrect = true;
+                    isCorrect = true;
                     this.isCompleted = true;
                 }
                 else
                 {
                     System.out.println("");
                     GameOverScreen.printGameOverScreen(this.player, "Game Over! You have been detected!");
-                    this.isCorrect = false;
+                    isCorrect = false;
                     this.isCompleted = false;
                 }
                 break;
             case "A":
                 if (this.userInput.equalsIgnoreCase("D"))
                 {
-                    this.isCorrect = true;
+                    isCorrect = true;
                     this.isCompleted = true;
                 }
                 else
                 {
                     System.out.println("");
                     GameOverScreen.printGameOverScreen(this.player, "Game Over! You have been detected!");
-                    this.isCorrect = false;
+                    isCorrect = false;
                     this.isCompleted = false;
                 }
                 break;
             case "D":
                 if (userInput.equalsIgnoreCase("A"))
                 {
-                    this.isCorrect = true;
+                    isCorrect = true;
                     this.isCompleted = true;
                 }
                 else
                 {
                     System.out.println("");
                     GameOverScreen.printGameOverScreen(this.player, "Game Over! You have been detected!");
-                    this.isCorrect = false;
+                    isCorrect = false;
                     this.isCompleted = false;
                 }
                 break;
             default:
-                this.isCorrect = false;
+                isCorrect = false;
                 this.isCompleted = false;
                 break;
         }
@@ -136,11 +134,10 @@ public class Stage_2 extends Stage
         this.userInput = "";
         this.guardMovement = "";
         this.isCompleted = true;
-        this.isValid = false;
-        this.isCorrect = false;
         this.player = player;
         int successAttempt = 0;
-        
+        boolean isValid = false;
+
         // Start Stage
         try
         {
@@ -167,7 +164,7 @@ public class Stage_2 extends Stage
 
                     else
                     {
-                        this.isValid = true;
+                        isValid = true;
                     }
                 } while (!isValid);   //Validates user input
 
@@ -189,19 +186,14 @@ public class Stage_2 extends Stage
                 System.out.println("");
                 System.out.println("==============================================================================");
                 System.out.println("You have successfully avoided all three guards!");
-<<<<<<< HEAD
-                
                 System.out.println("");
-=======
                 Thread.sleep(1000);
                 System.out.println("You open a door and see a room with three weapons.");
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
                 System.out.println("==============================================================================");
 
                 player.setCurrentStageLevel(new Stage_3());
                 player.getCurrentStage().initiateStage(player);
             }
-
         }
         catch (InterruptedException ex)
         {
@@ -209,13 +201,3 @@ public class Stage_2 extends Stage
         }
     }
 }
-<<<<<<< HEAD
-//    public static void main(String[] args)
-//    {
-//        Player test = new Player("Test");
-//        Stage stage2 = new Stage_2();
-//        stage2.initiateStage(test);
-//    }
-
-=======
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1

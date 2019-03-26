@@ -16,14 +16,8 @@ import java.util.ArrayList;
  */
 public class Player extends Entity
 {
-<<<<<<< HEAD
-
-    public ArrayList<Item> itemsHeld  = new ArrayList();
-=======
-    public ArrayList<Item> itemsHeld;
->>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
-    public int stageLevel;
-    public Stage playerStage;
+    private ArrayList<Item> itemsHeld;
+    private Stage playerStage;
 
     /**
      * Override Constructor for the game player.
@@ -33,8 +27,8 @@ public class Player extends Entity
     public Player(String name)
     {
         super(name, 1);
+        this.itemsHeld  = new ArrayList();
         this.playerStage = new Stage_1();
-        this.stageLevel = 1;
     }
 
     /**
@@ -44,7 +38,7 @@ public class Player extends Entity
      */
     public void pickupItem(Item item)
     {
-        System.out.println("You picked up " + item.getName());
+        System.out.println("You picked up " + item.getName() + ".");
         this.itemsHeld.add(item);
     }
     
@@ -74,7 +68,10 @@ public class Player extends Entity
         }
         else
         {
-            System.out.println("1) Yeet");
+            for (int counter = 0; counter < this.itemsHeld.size(); counter++)
+            {
+                System.out.println("[" + counter + "] " + this.itemsHeld.get(counter).getName());
+            }
             return this.itemsHeld;
         }
     }
@@ -86,7 +83,6 @@ public class Player extends Entity
      */
     public void setCurrentStageLevel(Stage stage)
     {
-        this.stageLevel = stage.getStageLevel();
         this.playerStage = stage;
     }
 

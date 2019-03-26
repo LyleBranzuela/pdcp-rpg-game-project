@@ -117,8 +117,6 @@ public class Menus
         name = scan.nextLine();
         while (name.length() > 10 || name.length() < 1)
         {
-            System.out.println();
-            System.out.println("============================================================");
             System.out.println("[Please enter a name at max of 10 or min of 1 character/s.]");
             System.out.println("============================================================");
             System.out.print("Enter Your Name: ");
