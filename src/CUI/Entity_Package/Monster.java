@@ -15,6 +15,8 @@ public class Monster extends Entity implements Enemy
     {
         super(name, 3);
     }
+<<<<<<< HEAD
+=======
 
     @Override
     public void attackPlayer(Player player)
@@ -28,4 +30,5 @@ public class Monster extends Entity implements Enemy
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
 }

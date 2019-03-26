@@ -5,8 +5,11 @@
  */
 package CUI.Items;
 
+<<<<<<< HEAD
+=======
 import CUI.Entity_Package.Enemy;
 import CUI.Entity_Package.HiddenMonster;
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
 import CUI.Entity_Package.Monster;
 
 /**
@@ -16,9 +19,14 @@ import CUI.Entity_Package.Monster;
  */
 public class Machete extends Item implements Weapon
 {
+<<<<<<< HEAD
+    int machDmg = 3;
+    int machSeq = 3;
+=======
 
     private final int weaponDamage = 0;
 
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     public Machete()
     {
         super("Machete");
@@ -39,6 +47,9 @@ public class Machete extends Item implements Weapon
     @Override
     public int attackEnemy(Enemy enemy)
     {
+<<<<<<< HEAD
+        return machDmg; //Returns machete damage for damage calculation
+=======
         if (enemy instanceof Monster)
         {
             return 0;
@@ -51,6 +62,7 @@ public class Machete extends Item implements Weapon
         {
             return 0;
         }
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     }
 
     /**
@@ -59,8 +71,17 @@ public class Machete extends Item implements Weapon
      * @return the damage taken.
      */
     @Override
-    public int parryAttack()
+    public int parrySeq()
     {
+<<<<<<< HEAD
+        return machSeq; //Returns int to adjust parry difficulty
+    }
+
+    @Override
+    public String printDescription() {
+        return "A hard-hitting weapon but lacks maneuverability due to its size and weight.";
+=======
         return 0;
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
     }
 }

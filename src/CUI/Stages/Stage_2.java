@@ -189,8 +189,13 @@ public class Stage_2 extends Stage
                 System.out.println("");
                 System.out.println("==============================================================================");
                 System.out.println("You have successfully avoided all three guards!");
+<<<<<<< HEAD
+                
+                System.out.println("");
+=======
                 Thread.sleep(1000);
                 System.out.println("You open a door and see a room with three weapons.");
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
                 System.out.println("==============================================================================");
 
                 player.setCurrentStageLevel(new Stage_3());
@@ -204,3 +209,13 @@ public class Stage_2 extends Stage
         }
     }
 }
+<<<<<<< HEAD
+//    public static void main(String[] args)
+//    {
+//        Player test = new Player("Test");
+//        Stage stage2 = new Stage_2();
+//        stage2.initiateStage(test);
+//    }
+
+=======
+>>>>>>> 610054f11bb73899e9d7c2a74b04828ea0ab60b1
