@@ -12,5 +12,5 @@ package CUI.Items;
 public interface Weapon
 {
     public int attackEntity();
-    public int parryAttack();
+    public int parrySeq();
 }
