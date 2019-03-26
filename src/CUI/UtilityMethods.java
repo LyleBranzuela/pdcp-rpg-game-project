@@ -5,9 +5,6 @@
  */
 package CUI;
 
-import CUI.Entity_Package.Player;
-import CUI.Stages.Stage;
-import CUI.Stages.Stage_1;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -45,7 +42,7 @@ public class UtilityMethods
         System.out.println(event[5]);
         System.out.print("Action: ");
 
-        while (!scanCheck && reader.hasNextInt())
+        while (!scanCheck)
         {
             try
             {
@@ -65,7 +62,7 @@ public class UtilityMethods
                         return 4;
 
                     default:
-                        System.out.print("\n[Choose a choice ranging from 1-4!]\n\n");
+                        System.out.print("[Choose a choice ranging from 1-4!]\n\n");
                         scanCheck = true;
                         UtilityMethods.clearScreen();
                         return 0;
@@ -73,7 +70,8 @@ public class UtilityMethods
             }
             catch (InputMismatchException e)
             {
-                System.out.print("\n[Please only input a number ranging 1-4!]\n\n");
+                System.out.print("[Please only input a number ranging 1-4!]\n\n");
+                scanCheck = true;
             }
         }
         return 0;

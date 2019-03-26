@@ -49,7 +49,7 @@ public class Stage_2 extends Stage
         switch (x)
         {
             case 1:
-                System.out.println("The guard in the middle is moving away from you, but there's still guards on the side.");
+                System.out.println("The guard in the middle is moving away from you, but there's still danger on the side.");
                 guardMovement = "S";
                 break;
             case 2:

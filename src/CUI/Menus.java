@@ -148,7 +148,7 @@ public class Menus
         {
             String[] loadMenu =
             {
-                "\n===============\n   Load List   \n===============\n",
+                "\n===============\n   Load Save   \n===============\n",
                 saveList[0],
                 saveList[1],
                 saveList[2],
