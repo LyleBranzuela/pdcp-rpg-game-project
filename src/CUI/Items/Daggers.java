@@ -40,7 +40,7 @@ public class Daggers extends Item implements Weapon
      * @return the damage made.
      */
     @Override
-    public int attackEnemy(Enemy enemy)
+    public int attack()
     {
         return dagDmg; //Returns damage of the dagger for use in damage calculation
     }

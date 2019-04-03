@@ -87,13 +87,13 @@ public class Stage_3 extends Stage
             } while (!isValid);  //Validates user input to make sure it is a number between 1 - 3.
 
             System.out.println("");
-            System.out.println("You hear a strange howl followed by loud footsteps. The entity has arrived");
+            System.out.println("You hear a strange howl followed by loud, inhuman footsteps. The entity has arrived");
             Thread.sleep(3000);
-            System.out.println("You think to yourself: If you can kill the entity, everything will be back to normal");
+            System.out.println("You think to yourself: If you can kill the entity, this apocalypse will finally be over.");
             Thread.sleep(3000);
             System.out.println("");
             System.out.println("=============================================================================================");
-            System.out.println("You walk out of the locker, heading towards the direction of the howl.");
+            System.out.println("With your new found determination, you walk out of the room and towards the howl.");
             System.out.println("=============================================================================================");
 
             player.setCurrentStageLevel(new Stage_4());

@@ -16,7 +16,8 @@ public abstract class Entity implements Serializable
 {
     public String name;
     protected int health;
-    protected int x_coord, y_coord;
+    public int x_coord;
+    public int y_coord;
 
     /**
      * Constructor for the entity's name and health.
@@ -70,8 +71,14 @@ public abstract class Entity implements Serializable
      * 
      * @param health how much health they set.
      */
-    protected void setHealth(int health)
+    public void setHealth(int health)
     {
         this.health = health;
+    }
+    
+    public void setLocation(int x, int y)
+    {
+        this.x_coord = x;
+        this.y_coord = y;
     }
 }

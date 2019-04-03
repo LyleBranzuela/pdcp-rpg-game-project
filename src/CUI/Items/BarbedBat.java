@@ -43,7 +43,7 @@ public class BarbedBat extends Item implements Weapon
      * @return the damage made.
      */
     @Override
-    public int attackEnemy(Enemy enemy)
+    public int attack()
     {
         return batDmg; // Returns damage of the bat for use in damage calculation.
     }
