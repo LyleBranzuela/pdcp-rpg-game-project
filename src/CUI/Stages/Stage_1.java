@@ -65,7 +65,7 @@ public class Stage_1 extends Stage
                     Thread.sleep(4000);
                     System.out.print("Someone talking.\n");
                     Thread.sleep(2000);
-                    System.out.println("[\"We've captured this person named " + player.getName() + ". Should we kill it off or offer it to them?\"]");
+                    System.out.println("[\"We've captured " + player.getName() + ". Should we kill it off or offer it to them?\"]");
                     Thread.sleep(4000);
                     System.out.println("As you press your ears harder on the wall, you hear another person speak. A person with a much deeper voice...");
                     Thread.sleep(4000);
@@ -95,7 +95,7 @@ public class Stage_1 extends Stage
             Thread.sleep(2000);
             System.out.println("- The third digit is three less than the second digit.");
             Thread.sleep(2000);
-            System.out.println("- The the fourth digit is two times the third digit.");
+            System.out.println("- The the fourth digit is half of the second digit and two times the third digit.");
             Thread.sleep(2000);
             Scanner scan = new Scanner(System.in);
             int tries = 0;

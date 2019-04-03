@@ -7,6 +7,7 @@ package CUI.Stages;
 
 import CUI.Entity_Package.Player;
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Abstract parent class for all the stages.
@@ -70,5 +71,20 @@ public abstract class Stage implements Serializable
         }
         
         return tempStage;
+    }
+    
+    /**
+     * Generates a random number for a variety of purposes
+     *
+     * @param range for random number to be created in
+     * 
+     * @return a random number within range.
+     */
+    public int randNum(int range)
+    {
+        Random rand = new Random();
+        int x = rand.nextInt(range);
+        
+        return x;
     }
 }

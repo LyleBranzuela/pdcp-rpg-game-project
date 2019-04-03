@@ -18,7 +18,7 @@ public class Player extends Entity
 {
     private ArrayList<Item> itemsHeld;
     private Stage playerStage;
-
+    
     /**
      * Override Constructor for the game player.
      *
@@ -40,6 +40,26 @@ public class Player extends Entity
     {
         System.out.println("You picked up " + item.getName() + ".");
         this.itemsHeld.add(item);
+    }
+    
+    /**
+     * Shows the player's weapon in inventory
+     *
+     * @return The player's chosen weapon from stage 3.
+     */
+    public Weapon showWeapon()
+    {
+        int x;
+        
+        for ( x = 0; itemsHeld.get(x) != null; x++)
+        {
+            if(itemsHeld.get(x) instanceof Weapon)
+            {
+                break;
+            }
+        }
+        
+        return (Weapon) itemsHeld.get(x);
     }
     
     /**

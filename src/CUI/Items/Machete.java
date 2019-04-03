@@ -42,7 +42,7 @@ public class Machete extends Item implements Weapon
      * @return the damage made.
      */
     @Override
-    public int attackEnemy(Enemy enemy)
+    public int attack()
     {
         return this.machDmg; //Returns machete damage for damage calculation
     }

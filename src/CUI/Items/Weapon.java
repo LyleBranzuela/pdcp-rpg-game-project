@@ -13,6 +13,6 @@ import CUI.Entity_Package.Enemy;
  */
 public interface Weapon
 {
-    public int attackEnemy(Enemy enemy);
+    public int attack();
     public int parrySeq();
 }

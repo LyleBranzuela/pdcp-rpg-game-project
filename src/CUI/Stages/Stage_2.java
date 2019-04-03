@@ -24,25 +24,13 @@ public class Stage_2 extends Stage
     private boolean isCompleted;
 
     /**
-     * Generates a number for movement creation
-     *
-     * @return An integer with values from 1 - 3
-     */
-    public int genNum()
-    {
-        Random rand = new Random();
-        int number = rand.nextInt(2) + 1;
-        return number;
-    }
-
-    /**
      * Generates movements from random numbers
      *
      * @return nothing.
      */
     private void genMove()
     {
-        int x = genNum();
+        int x = randNum(3) + 1;
 
         switch (x)
         {
