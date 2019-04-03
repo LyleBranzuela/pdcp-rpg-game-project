@@ -9,8 +9,6 @@ import CUI.Entity_Package.Player;
 import CUI.GameOverScreen;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Class for the Stage 1 of the Game. Password by the riddle that needs to be

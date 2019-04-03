@@ -40,10 +40,32 @@ public class Menus
         catch (ClassNotFoundException e)
         {
             System.out.println("Class" + e + "not found");
+            System.out.println("[Resetting Save Files...]");
+            try
+            {
+                SaveLoad.resetSaveFile();
+                initializeMenu();
+                System.out.println("");
+            }
+            catch (IOException ex)
+            {
+                System.out.println("Error: " + ex);
+            }
         }
         catch (IOException e)
         {
             System.out.println("Error reading from file " + e);
+            System.out.println("[Resetting Save Files...]");
+            try
+            {
+                SaveLoad.resetSaveFile();
+                initializeMenu();
+                System.out.println("");
+            }
+            catch (IOException ex)
+            {
+                System.out.println("Error: " + ex);
+            }
         }
 
         boolean exit = false;
@@ -73,7 +95,7 @@ public class Menus
                     exit = true;
                     break;
 
-                // Tutorial
+                // Reset Saves
                 case 3:
                 {
                     try

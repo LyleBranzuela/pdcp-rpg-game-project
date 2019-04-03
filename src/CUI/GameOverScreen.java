@@ -21,7 +21,7 @@ public class GameOverScreen
      * Used if there's no death message sent, which uses the previous death
      * message.
      *
-     * For the save menu as it doesn't need a death message.
+     * For the save menu as it doesn't have its own death message, but rely on the previous one.
      *
      * @param player player to be sent to the overloaded print game over screen.
      */
