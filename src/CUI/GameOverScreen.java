@@ -21,7 +21,7 @@ public class GameOverScreen
      * Used if there's no death message sent, which uses the previous death
      * message.
      *
-     * For the save menu as it doesn't have its own death message, but rely on the previous one.
+     * Used to create the back menu option
      *
      * @param player player to be sent to the overloaded print game over screen.
      */
@@ -42,14 +42,24 @@ public class GameOverScreen
         Menus menu = new Menus();
         GameOverScreen.deathMessage = deathMessage;
         String border = "";
+        String gameOver = "";
+
+        // Generate the Borders
         for (int counter = 0; counter < deathMessage.length(); counter++)
         {
             border = border.concat("=");
         }
 
+        // Generate Game Over String, 5 is the middle of Game Over.
+        for (int counter = 0; counter < (deathMessage.length() / 2 - 5); counter++)
+        {
+            gameOver = gameOver.concat(" ");
+        }
+        gameOver = gameOver.concat("Game Over!");
+
         String[] GameOver =
         {
-            border + "\n" + deathMessage + "\n" + border + "\n",
+            border + "\n" + gameOver + "\n" + deathMessage + "\n" + border + "\n",
             "Retry Stage",
             "Save Game",
             "Main Menu",
@@ -65,6 +75,7 @@ public class GameOverScreen
                 case 1:
                     System.out.println(border);
                     System.out.println("[Retrying Stage...]");
+                    System.out.println();
                     player.getCurrentStage().initiateStage(player);
                     exit = true;
                     break;

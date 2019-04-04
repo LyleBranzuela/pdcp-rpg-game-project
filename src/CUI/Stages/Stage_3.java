@@ -19,12 +19,11 @@ public class Stage_3 extends Stage
 
     /*
      * Creates content for stage 3
-     *
      */
     @Override
     public void initiateStage(Player player)
     {
-        // 
+        // Initating the Variables
         Scanner scan = new Scanner(System.in);
         String userInput;
         int weaponChoice;

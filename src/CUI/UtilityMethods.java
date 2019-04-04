@@ -6,6 +6,7 @@
 package CUI;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -14,6 +15,26 @@ import java.util.Scanner;
  */
 public class UtilityMethods
 {
+
+    /**
+     * Generates a random number for a variety of purposes
+     *
+     * @param range for random number to be created in
+     * @return a random number within range.
+     */
+    public static int randNum(int range)
+    {
+        Random rand = new Random();
+        int x = rand.nextInt(range);
+
+        return x;
+    }
+
+    /**
+     * 
+     * @param event
+     * @return 
+     */
     public static int setChoices(String[] event)
     {
         Scanner reader = new Scanner(System.in);

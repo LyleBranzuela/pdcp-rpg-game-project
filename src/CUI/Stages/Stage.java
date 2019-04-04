@@ -7,7 +7,6 @@ package CUI.Stages;
 
 import CUI.Entity_Package.Player;
 import java.io.Serializable;
-import java.util.Random;
 
 /**
  * Abstract parent class for all the stages.
@@ -17,7 +16,7 @@ import java.util.Random;
 public abstract class Stage implements Serializable
 {
     protected int stageLevel;
-
+    
     /**
      * Returns the stage level of the stage.
      *
@@ -34,57 +33,6 @@ public abstract class Stage implements Serializable
      * @param player
      */
     abstract public void initiateStage(Player player);
-
-    /**
-     * Returns the current stage the game is in.
-     *
-     * @param currentStageLevel
-     * @return
-     */
-    public Stage getStage(int currentStageLevel)
-    {
-        // Default Stage
-        this.stageLevel = currentStageLevel;
-        Stage tempStage = new Stage_1();
-        
-        switch (this.stageLevel)
-        {
-            case 1:
-                tempStage = new Stage_1();
-                break;
-
-            case 2:
-                tempStage = new Stage_2();
-                break;
-
-            case 3:
-                tempStage = new Stage_3();
-                break;
-
-            case 4:
-                tempStage = new Stage_4();
-                break;
-
-            default:
-                System.out.println("Error finding stage files.");
-                break;
-        }
-        
-        return tempStage;
-    }
     
-    /**
-     * Generates a random number for a variety of purposes
-     *
-     * @param range for random number to be created in
-     * 
-     * @return a random number within range.
-     */
-    public int randNum(int range)
-    {
-        Random rand = new Random();
-        int x = rand.nextInt(range);
-        
-        return x;
-    }
+
 }

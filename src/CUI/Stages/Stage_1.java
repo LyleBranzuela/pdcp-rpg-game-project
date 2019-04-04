@@ -27,21 +27,22 @@ public class Stage_1 extends Stage
     @Override
     public void initiateStage(Player player)
     {
-        // Iniating the Stage's Default Attributes
+        // Iniating the Stage's Variables
         final int password = 1412;
         int userInput = 0;
+        Scanner scan = new Scanner(System.in);
 
         try
         {
             Scanner skipScan = new Scanner(System.in);
-            System.out.print("[Type S to Skip To Puzzle | Type Any to Start]: ");
+            System.out.print("[Type S to Skip Cutscene | Type Any to Start]: ");
             String selection = skipScan.nextLine();
             System.out.println("============================================================");
             switch (selection)
             {
                 case "s":
                 case "S":
-                    System.out.println("[Skipping to Puzzle...]");
+                    System.out.println("[Skipping Cutscene...]");
                     Thread.sleep(2000);
                     break;
                 default:
@@ -89,7 +90,7 @@ public class Stage_1 extends Stage
             }
             // Fourth Paragraph - The Note
             System.out.println();
-            System.out.println("The note suggests it's a four digit password:  ");
+            System.out.println("The note suggests it's a four digit password:");
             Thread.sleep(2000);
             System.out.println("- The second digit is four times the first digit.");
             Thread.sleep(2000);
@@ -97,13 +98,14 @@ public class Stage_1 extends Stage
             Thread.sleep(2000);
             System.out.println("- The the fourth digit is half of the second digit and two times the third digit.");
             Thread.sleep(2000);
-            Scanner scan = new Scanner(System.in);
+            System.out.println("- The passcode must be answered within 5 minutes.");
+            Thread.sleep(2000);
             int tries = 0;
             while (userInput != password && tries != 3)
             {
                 try
                 {
-                    System.out.println("============================================================");
+                    System.out.println("==============================================================================");
                     System.out.print("Enter the passcode: ");
                     userInput = scan.nextInt();
                     Thread.sleep(1000);
@@ -112,29 +114,31 @@ public class Stage_1 extends Stage
 
                     if (userInput != password)
                     {
-                        System.out.print("The passcode was wrong, try again.\n");
                         tries++;
+                        System.out.print("The passcode was wrong, " + tries + " of the 3 red dots glow.\n");
                     }
                 }
                 // If the user inputted a passcode that isn't a number.
                 catch (InputMismatchException e)
                 {
-                    System.out.println("The passcode only accepts numbers, try again.");
+                    System.out.print("The passcode only seems to accept numbers.\n");
                     scan = new Scanner(System.in);
-                    tries++;
                 }
                 finally
                 {
                     if (tries == 3)
                     {
-                        System.out.print("The alarm goes off and the guard notices you.\n");
+                        timerTask.interrupt();
+                        System.out.print("All the red dots on the passcode glows...\n");
+                        Thread.sleep(2000);
+                        System.out.println("The alarm goes off and the guard notices you.");
                         System.out.println();
                         GameOverScreen.printGameOverScreen(player, "You have been detected!");
                     }
                 }
             }
             System.out.print("\n\n==============================================================================\n");
-            System.out.println("The lock came off, you peaked through the door to see three patrolling guards.");
+            System.out.println("The lock came off, you peek through the door to see three patrolling guards.");
             System.out.println("==============================================================================");
             // Sets the stage level into Stage 2 and Iniate it with the Player Object
             player.setCurrentStageLevel(new Stage_2());

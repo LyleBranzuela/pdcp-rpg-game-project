@@ -7,7 +7,7 @@ package CUI.Stages;
 
 import CUI.Entity_Package.Player;
 import CUI.GameOverScreen;
-import java.util.Random;
+import CUI.UtilityMethods;
 import java.util.Scanner;
 
 /**
@@ -30,7 +30,7 @@ public class Stage_2 extends Stage
      */
     private void genMove()
     {
-        int x = randNum(3) + 1;
+        int x = UtilityMethods.randNum(3) + 1;
 
         switch (x)
         {
@@ -139,6 +139,9 @@ public class Stage_2 extends Stage
             for (successAttempt = 0; successAttempt < 3; successAttempt++)  //Generates 3 moves and check for input.
             {
                 this.genMove();
+                // Clears out the buffer that was inputted beforehand.
+                scan.close();
+                scan = new Scanner(System.in); 
                 System.out.print("Action [A|W|D]: ");
                 do
                 {

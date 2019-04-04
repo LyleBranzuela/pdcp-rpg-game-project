@@ -37,30 +37,35 @@ public class Menus
         {
             SaveLoad.initializeSaveList();
         }
+        // Problem with the Classes
         catch (ClassNotFoundException e)
         {
-            System.out.println("Class" + e + "not found");
-            System.out.println("[Resetting Save Files...]");
+            System.out.println("[Class not found in Save File.]");
             try
             {
+                // Reinitialization of the Menu if the Save files are corrupted.
                 SaveLoad.resetSaveFile();
-                initializeMenu();
                 System.out.println("");
+                System.out.println("[Reinitializing Menus...]");
+                initializeMenu();
+                
             }
             catch (IOException ex)
             {
                 System.out.println("Error: " + ex);
             }
         }
+        // Problem with the File IO
         catch (IOException e)
         {
-            System.out.println("Error reading from file " + e);
-            System.out.println("[Resetting Save Files...]");
+            System.out.println("[Error reading from save files.]");
             try
             {
+                // Reinitialization of the Menu if the Save files are corrupted.
                 SaveLoad.resetSaveFile();
-                initializeMenu();
                 System.out.println("");
+                System.out.println("[Reinitializing Menus...]");
+                initializeMenu();
             }
             catch (IOException ex)
             {
