@@ -419,6 +419,9 @@ public class Stage_4 extends Stage
                             } while (!isMoveCorrect);
                     }
                 }
+                
+                else
+                    player.setHealth(0); //Kills player if he fails to parry
             }
             
             
