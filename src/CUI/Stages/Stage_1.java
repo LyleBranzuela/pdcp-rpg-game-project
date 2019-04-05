@@ -47,43 +47,56 @@ public class Stage_1 extends Stage
                     break;
                 default:
                     // First Paragraph - Intro
-                    System.out.println("You wake up to find yourself locked in a prison cell.");
+                    System.out.println("A decade after the appearance of an alien entity, humanity is on the brink of extinction.");
                     Thread.sleep(2000);
-                    System.out.println("You vividly remember what happened last night.");
+                    System.out.println("");
+                    System.out.println("Anyone or anything that has seen the entity's face have gone insane and committed suicide.");
                     Thread.sleep(2000);
-                    System.out.println("While searching for supplies, you were captured by a group of infected.");
+                    System.out.println("");
+                    System.out.println("Those who didn't were purposely kept alive and brainwashed by the entity to become Infecteds.");
+                    Thread.sleep(2000);
+                    System.out.println("");
+                    System.out.println("These Infecteds are then sent out to hunt down any other surivors.");
+                    Thread.sleep(2000);
+                    System.out.println("");
+                    System.out.println("You and several others learnt to navigate with sounds to survive this apocalypse");
+                    Thread.sleep(2000);
+                    System.out.println("");
+                    System.out.println("While searching for supplies for your community, you were captured by a group of Infected.");
+                    Thread.sleep(2000);
+                    
+                  
+                    
                     Thread.sleep(3000);
 
                     // Second Paragraph - Eavesdropping
                     System.out.println();
-                    System.out.println("You hear a faint noise coming from the door. ");
+                    System.out.println("You wake up to find yourself locked in a prison cell.");
                     Thread.sleep(2000);
-                    System.out.println("Curious, and confused, you pressed your head onto it to hear it more clearly.");
+                    System.out.println("You hear a voice coming from the door. ");
+                    Thread.sleep(2000);
+                    System.out.println("");
                     Thread.sleep(2000);
                     System.out.print("\n...");
                     Thread.sleep(3000);
-                    System.out.print("You hear something...");
-                    Thread.sleep(4000);
                     System.out.print("Someone talking.\n");
                     Thread.sleep(2000);
-                    System.out.println("[\"We've captured " + player.getName() + ". Should we kill it off or offer it to them?\"]");
+                    System.out.println("[\"We've captured " + player.getName() + ". I think he's one of the kids from the hidden community.\"]");
                     Thread.sleep(4000);
-                    System.out.println("As you press your ears harder on the wall, you hear another person speak. A person with a much deeper voice...");
+                    System.out.println("As you try to collect yourself, you hear a response from another guard...");
                     Thread.sleep(4000);
-                    System.out.println("[\"Send..." + player.getName() + " to the entity. That way we'll be able to track the others.\"]");
+                    System.out.println("[\"Perfect. Contact the Entity, we can corrupt this " + player.getName() + " kid and use him to find the others\"]");
                     Thread.sleep(5000);
-                    System.out.println("[\"For now, we need to search for the others. The entity will take care of this.\"]");
+                    System.out.println("The conversation ends and you hear faint footsteps going further away.");
                     Thread.sleep(3000);
-                    System.out.println("You hear footsteps getting fainter and fainter as they leave the room outside.");
-                    Thread.sleep(3000);
-                    System.out.println("Realizing they are going to use you to find the other survivors, you start searching for a way to escape...");
+                    System.out.println("Realizing the Entity is coming to corrupt you, you start searching for a way to escape...");
                     Thread.sleep(3000);
 
                     // Third Paragraph - Rummaging Through The Room
                     System.out.println();
-                    System.out.println("As you rummage through the room, you have found a note inside a drawer.");
+                    System.out.println("As you rummage through the room, you have found a note under the carpet.");
                     Thread.sleep(3000);
-                    System.out.println("You notice a lock that requires a 4 digit code to unlock.");
+                    System.out.println("You notice the cell's door has a lock that requires a 4 digit code to unlock.");
                     Thread.sleep(3000);
                     System.out.println("The note contains a riddle that might be the passcode, solve it and get out before the entity arrives: ");
                     Thread.sleep(3000);
@@ -121,14 +134,14 @@ public class Stage_1 extends Stage
                 // If the user inputted a passcode that isn't a number.
                 catch (InputMismatchException e)
                 {
-                    System.out.print("The passcode only seems to accept numbers.\n");
+                    System.out.print("This is a numeric passcode!\n");
                     scan = new Scanner(System.in);
                 }
                 finally
                 {
                     if (tries == 3)
                     {
-                        timerTask.interrupt();
+//                        timerTask.interrupt();
                         System.out.print("All the red dots on the passcode glows...\n");
                         Thread.sleep(2000);
                         System.out.println("The alarm goes off and the guard notices you.");
@@ -138,7 +151,7 @@ public class Stage_1 extends Stage
                 }
             }
             System.out.print("\n\n==============================================================================\n");
-            System.out.println("The lock came off, you peek through the door to see three patrolling guards.");
+            System.out.println("The dots flashed green and the door opened. You peek through the door to spot three patrolling guards.");
             System.out.println("==============================================================================");
             // Sets the stage level into Stage 2 and Iniate it with the Player Object
             player.setCurrentStageLevel(new Stage_2());

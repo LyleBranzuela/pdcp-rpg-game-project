@@ -35,7 +35,7 @@ public class Stage_2 extends Stage
         switch (x)
         {
             case 1:
-                System.out.println("The guard in the middle is moving away from you, but there's still danger on the side.");
+                System.out.println("A guard is walking further away from you. It is safe to move forward.");
                 guardMovement = "S";
                 break;
             case 2:
@@ -131,7 +131,7 @@ public class Stage_2 extends Stage
         {
             System.out.println("You broke out of the cell! Now sneak past the guards and find your way out!");
             Thread.sleep(2000);
-            System.out.println("Watch the guards' movements and don't walk in the same direction they're heading!");
+            System.out.println("Watch the guards' movements and don't walk into their line of sight!");
             Thread.sleep(2000);
             System.out.println("");
             System.out.println("[MOVEMENT: A - MOVE LEFT | W - MOVE FORWARD | D - MOVE RIGHT]");
@@ -139,9 +139,7 @@ public class Stage_2 extends Stage
             for (successAttempt = 0; successAttempt < 3; successAttempt++)  //Generates 3 moves and check for input.
             {
                 this.genMove();
-                // Clears out the buffer that was inputted beforehand.
-                scan.close();
-                scan = new Scanner(System.in); 
+               
                 System.out.print("Action [A|W|D]: ");
                 do
                 {
@@ -162,7 +160,7 @@ public class Stage_2 extends Stage
                 if (checkMove())
                 {
                     System.out.println("");
-                    System.out.println("You have avoided that guard. Keep moving!");
+                    System.out.println("Good job avoiding the guard. Keep moving!");
                     System.out.println("");
                     Thread.sleep(1000);
                 }
