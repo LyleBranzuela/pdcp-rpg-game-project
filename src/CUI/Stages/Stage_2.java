@@ -43,7 +43,7 @@ public class Stage_2 extends Stage
                 guardMovement = "D";
                 break;
             case 3:
-                System.out.println("A guard iscoming from the left, avoid him!");
+                System.out.println("A guard is coming from the left, avoid him!");
                 guardMovement = "A";
                 break;
             default:
@@ -177,7 +177,7 @@ public class Stage_2 extends Stage
                 System.out.println("You have successfully avoided all three guards!");
                 System.out.println("");
                 Thread.sleep(1000);
-                System.out.println("You open a door and see a room with three weapons.");
+                System.out.println("You head straight to a long hallway.");
                 System.out.println("==============================================================================");
 
                 player.setCurrentStageLevel(new Stage_3());

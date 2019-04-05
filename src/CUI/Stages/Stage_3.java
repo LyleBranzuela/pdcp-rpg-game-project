@@ -92,6 +92,7 @@ public class Stage_3 extends Stage
             System.out.println("");
             System.out.println("You hear a strange howl followed by loud, inhuman footsteps. The entity has arrived");
             Thread.sleep(3000);
+            System.out.println("");
             System.out.println("You think to yourself: If you can kill the entity, this apocalypse will finally be over.");
             Thread.sleep(3000);
             System.out.println("");
