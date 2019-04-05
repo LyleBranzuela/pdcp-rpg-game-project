@@ -32,7 +32,6 @@ public class Stage_3 extends Stage
         Item barbedBat = new BarbedBat();
         Item dualDag = new Daggers();
         Item machete = new Machete();
-        Item blindfold = new Blindfold();
 
         try
         {

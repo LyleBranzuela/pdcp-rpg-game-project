@@ -125,8 +125,8 @@ public class Stage_4 extends Stage
     /**
      * Calculate difference in player's and monster's horizontal coordinates.
      * 
-     * @param player
-     * @param monster
+     * @param player current player playing.
+     * @param monster what monster to print.
      * @return horizontal distance between player and monster
      */
     public int getXDiff(Player player, Entity monster)
@@ -163,8 +163,8 @@ public class Stage_4 extends Stage
     /**
      * Generate horizontal directional guides for player to find monster
      * 
-     * @param player
-     * @param monster
+     * @param player current player playing.
+     * @param monster what monster to print.
      */
     public void printHorizon(Player player, Entity monster)
     {
@@ -192,8 +192,8 @@ public class Stage_4 extends Stage
     /**
      * Generate vertical directional guides for the player to find the monster
      * 
-     * @param player
-     * @param monster
+     * @param player current player playing.
+     * @param monster what monster to print.
      */
     public void printVertical(Player player, Entity monster)
     {
@@ -234,7 +234,7 @@ public class Stage_4 extends Stage
     /**
      * Creates the content for Stage 4
      * 
-     * @param player
+     * @param player current player playing.
      */
     @Override
     public void initiateStage(Player player)
@@ -265,13 +265,7 @@ public class Stage_4 extends Stage
             System.out.println("You followed the footprints and howls to a large room...");
             System.out.println("");
             Thread.sleep(2000);
-<<<<<<< HEAD
-            System.out.println("You're about to meet THE ENTITY, put your blindfold on! (Press 2): ");
-            
-=======
-            System.out.println("You're about to meet THE ENTITY, put your blindfold on! (Press 2):");
-            System.out.println("...");
->>>>>>> 821e90c2dd8a79ec7da2bf6b643778dd657ca546
+            System.out.print("You're about to meet THE ENTITY, put your blindfold on! (Press 2): ");
             
             do 
             {

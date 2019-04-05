@@ -8,7 +8,7 @@ package CUI;
 
 /**
  * Driver class for the whole CUI.
- * Walkthrough file is in the 
+ * 
  * @author lyleb and khoap
  */
 
@@ -17,6 +17,7 @@ public class Main_Driver
 
     public static void main(String[] args)
     {
+        // Walkthrough text file is in the source folder
         Menus menu = new Menus();
         menu.initializeMenu();
     }
