@@ -173,7 +173,6 @@ public class Stage_2 extends Stage
 
             if (this.isCompleted == true)    // checks for stage completion and iniate stage 3 if completed
             {
-                System.out.println("");
                 System.out.println("==============================================================================");
                 System.out.println("You have successfully avoided all three guards!");
                 System.out.println("");
