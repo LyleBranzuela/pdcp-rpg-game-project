@@ -425,13 +425,22 @@ public class Stage_4 extends Stage
             }
             
             
-            Thread.sleep(2000);
-            System.out.println("");
-            System.out.println("With that fatal blow, you've defeated the monster.");
-            Thread.sleep(1000);
-            System.out.println("The apocalypse is finally over.");
-            System.out.println("================================================================================");
-             
+            if (monster.getHealth() < 0 && player.getHealth() > 0)
+            {
+                Thread.sleep(2000);
+                System.out.println("");
+                System.out.println("With that fatal blow, you've defeated the monster.");
+                Thread.sleep(1000);
+                System.out.println("The apocalypse is finally over.");
+                System.out.println("================================================================================");
+            }
+            else if(player.getHealth() == 0)
+            {
+                Thread.sleep(2000);
+                System.out.println("");
+                System.out.println("Game over! You failed to dodge the entity's attack...");
+                System.out.println("");
+            }
         } 
         catch(InterruptedException ex)
         {
