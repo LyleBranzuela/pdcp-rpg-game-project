@@ -11,15 +11,11 @@ import CUI.Entity_Package.Player;
 import CUI.GameOverScreen;
 import CUI.Items.Blindfold;
 import CUI.Items.Item;
-import CUI.Items.Machete;
 import CUI.UtilityMethods;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  * Class for the Stage 4 of the Game.
  *
@@ -143,8 +139,8 @@ public class Stage_4 extends Stage
     /**
      * Calculate difference in player's and monster's vertical coordinates.
      * 
-     * @param player
-     * @param monster
+     * @param player current player playing.
+     * @param monster what monster the entity is.
      * @return vertical distance between player and monster
      */
     public int getYDiff(Player player, Entity monster)
@@ -245,6 +241,7 @@ public class Stage_4 extends Stage
     {
         try
         {
+            super.stageLevel = 4;
             Player checkPointPlayer = player;
             Scanner scan = new Scanner(System.in);
             Random rand = new Random();
@@ -308,7 +305,7 @@ public class Stage_4 extends Stage
                 printHorizon(player, monster);
                 printVertical(player, monster);
                 
-                System.out.println("Your move(W/A/S/D): ");
+                System.out.print("Your move(W/A/S/D): ");
                 do
                 {
                     userInput = scan.nextLine();

@@ -20,7 +20,6 @@ import java.util.Scanner;
  */
 public class Stage_1 extends Stage
 {
-
     /**
      * Create the content for stage 1.
      */
@@ -28,6 +27,7 @@ public class Stage_1 extends Stage
     public void initiateStage(Player player)
     {
         // Iniating the Stage's Variables
+        super.stageLevel = 1;
         final int password = 1412;
         int userInput = 0;
         Scanner scan = new Scanner(System.in);
@@ -128,8 +128,15 @@ public class Stage_1 extends Stage
                     Thread.sleep(1000);
                     System.out.print("...");
                     Thread.sleep(2000);
-
-                    if (userInput != password)
+                    
+                    if ((startTime + limit) < System.currentTimeMillis())
+                    {
+                        System.out.println("5 Minutes have passed.");
+                        System.out.println("The guards get suspicious and looks inside the room.");
+                        System.out.println();
+                        GameOverScreen.printGameOverScreen(player, "You have been detected!");
+                    }
+                    else if (userInput != password)
                     {
                         tries++;
                         System.out.print("The passcode was wrong, " + tries + " of the 3 Red Dots glow.\n");
@@ -139,15 +146,13 @@ public class Stage_1 extends Stage
                 catch (InputMismatchException e)
                 {
                     System.out.print("This is a numeric passcode!\n");
-                    System.out.rpint
                     scan = new Scanner(System.in);
                 }
                 finally
                 {
                     if (tries == 3)
                     {
-//                        timerTask.interrupt();
-                        System.out.print("All the red dots on the passcode glows...\n");
+                        System.out.print("All the red dots on the passcode glows.\n");
                         Thread.sleep(2000);
                         System.out.println("The alarm goes off and the guard notices you.");
                         System.out.println();
@@ -155,9 +160,9 @@ public class Stage_1 extends Stage
                     }
                 }
             }
-            System.out.print("\n\n==============================================================================\n");
+            System.out.print("\n\n======================================================================================================\n");
             System.out.println("The dots flashed green and the door opened. You peek through the door to spot three patrolling guards.");
-            System.out.println("==============================================================================");
+            System.out.println("======================================================================================================");
             // Sets the stage level into Stage 2 and Iniate it with the Player Object
             player.setCurrentStageLevel(new Stage_2());
             player.getCurrentStage().initiateStage(player);

@@ -199,10 +199,11 @@ public class Menus
                     else
                     {
                         this.player = SaveLoad.loadCharacter(choice - 1);
+                        System.out.println("============================================================");
+                        System.out.println("Initiating Stage " + this.player.getCurrentStage().getStageLevel() + "...");
+                        System.out.println("============================================================");
+                        System.out.println();
                         this.player.getCurrentStage().initiateStage(this.player);
-                        System.out.println("============================================================");
-                        System.out.println("Initiating Stage " + stage.getStageLevel() + "...");
-                        System.out.println("============================================================");
                         breakLoop = true;
                     }
                     break;

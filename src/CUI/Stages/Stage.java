@@ -18,6 +18,32 @@ public abstract class Stage implements Serializable
     protected int stageLevel;
     
     /**
+     * Method to determine a stage level.
+     * @param stage 
+     */
+//    public void determineStageLevel(Stage stage) {
+//        if (stage instanceof Stage_1)
+//        {
+//            this.stageLevel = 1;
+//        }
+//        else if (stage instanceof Stage_2)
+//        {
+//            this.stageLevel = 2;
+//        }
+//        else if (stage instanceof Stage_3)
+//        {
+//            this.stageLevel = 3;
+//        }
+//        else if (stage instanceof Stage_4)
+//        {
+//            this.stageLevel = 4;
+//        }
+//        else
+//        {
+//            this.stageLevel = 0;
+//        }
+//    }             
+    /**
      * Returns the stage level of the stage.
      *
      * @return the stage level of the current stage.

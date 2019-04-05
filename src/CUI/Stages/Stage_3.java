@@ -24,6 +24,7 @@ public class Stage_3 extends Stage
     public void initiateStage(Player player)
     {
         // Initating the Variables
+        super.stageLevel = 3;
         Scanner scan = new Scanner(System.in);
         String userInput;
         int weaponChoice;

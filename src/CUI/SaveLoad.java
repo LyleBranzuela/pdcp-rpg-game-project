@@ -22,7 +22,7 @@ public class SaveLoad
 {
 
     private static ArrayList<Player> characterSaveList = new ArrayList<>(3);
-    private static File f = new File("SaveFiles.txt");
+    private static File f = new File("SaveFiles");
 
     /**
      * Saves the current character selected.

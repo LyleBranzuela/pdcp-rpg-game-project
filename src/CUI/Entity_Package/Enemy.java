@@ -7,6 +7,7 @@ package CUI.Entity_Package;
 
 /**
  * Interface for the Enemy type Entity.
+ * This will be needed on the GUI.
  * 
  * @author lyleb and khoap
  */

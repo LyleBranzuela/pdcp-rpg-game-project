@@ -118,6 +118,7 @@ public class Stage_2 extends Stage
     public void initiateStage(Player player)
     {
         // Iniating the Stage's Default Attributes
+        super.stageLevel = 2;
         Scanner scan = new Scanner(System.in);
         this.userInput = "";
         this.guardMovement = "";
