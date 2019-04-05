@@ -268,8 +268,13 @@ public class Stage_4 extends Stage
             System.out.println("You followed the footprints and howls to a large room...");
             System.out.println("");
             Thread.sleep(2000);
+<<<<<<< HEAD
             System.out.println("You're about to meet THE ENTITY, put your blindfold on! (Press 2): ");
             
+=======
+            System.out.println("You're about to meet THE ENTITY, put your blindfold on! (Press 2):");
+            System.out.println("...");
+>>>>>>> 821e90c2dd8a79ec7da2bf6b643778dd657ca546
             
             do 
             {
