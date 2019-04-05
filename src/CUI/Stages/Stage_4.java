@@ -9,10 +9,16 @@ import CUI.Entity_Package.Entity;
 import CUI.Entity_Package.Monster;
 import CUI.Entity_Package.Player;
 import CUI.GameOverScreen;
+import CUI.Items.Blindfold;
+import CUI.Items.Item;
+import CUI.Items.Machete;
 import CUI.UtilityMethods;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Class for the Stage 4 of the Game.
@@ -28,7 +34,8 @@ public class Stage_4 extends Stage
     private ArrayList<String> hardParry;
 
     /**
-     *
+     * Function to add monster's attacks and solutions to arrays
+     * 
      */
     public void addMoves()
     {
@@ -63,7 +70,7 @@ public class Stage_4 extends Stage
     /**
      * Generates a random parry sequence for the user to deal with.
      *
-     * @param parrySeq parry difficulty.
+     * @param parrySeq parry sequence to use.
      * @return the string version of the generated parry.
      */
     public String genParry(int parrySeq)
@@ -120,11 +127,11 @@ public class Stage_4 extends Stage
     }
 
     /**
-     *
-     *
+     * Calculate difference in player's and monster's horizontal coordinates.
+     * 
      * @param player
      * @param monster
-     * @return
+     * @return horizontal distance between player and monster
      */
     public int getXDiff(Player player, Entity monster)
     {
@@ -134,11 +141,11 @@ public class Stage_4 extends Stage
     }
 
     /**
-     *
-     *
+     * Calculate difference in player's and monster's vertical coordinates.
+     * 
      * @param player
      * @param monster
-     * @return
+     * @return vertical distance between player and monster
      */
     public int getYDiff(Player player, Entity monster)
     {
@@ -149,7 +156,7 @@ public class Stage_4 extends Stage
 
     /**
      * Returns the parry difficulty of the parry generated.
-     *
+     * 
      * @return parry difficulty.
      */
     public int getParrySeq()
@@ -158,8 +165,8 @@ public class Stage_4 extends Stage
     }
 
     /**
-     *
-     *
+     * Generate horizontal directional guides for player to find monster
+     * 
      * @param player
      * @param monster
      */
@@ -187,8 +194,8 @@ public class Stage_4 extends Stage
     }
 
     /**
-     *
-     *
+     * Generate vertical directional guides for the player to find the monster
+     * 
      * @param player
      * @param monster
      */
@@ -229,138 +236,201 @@ public class Stage_4 extends Stage
     }
 
     /**
+     * Creates the content for Stage 4
      * 
      * @param player
      */
     @Override
     public void initiateStage(Player player)
     {
-        Player checkPointPlayer = player;
-        Scanner scan = new Scanner(System.in);
-        Random rand = new Random();
-        Entity monster = new Monster("THE ENTITY");
-        String userInput = "";
-        int userAttack;
-
-        addMoves();
-
-        boolean isMoveValid = false;
-        boolean isMoveCorrect = false;
-        int parrySuccess = 0;
-
-        monster.setHealth(3);
-        player.setHealth(1);
-        monster.setLocation(rand.nextInt(5) + 3, 3);
-        player.setLocation(5, 0);
-
-        System.out.println("You followed the footprints and howls to a large room...");
-        System.out.println("You're about to meet THE ENTITY, put your blindfold on!");
-
-        System.out.println("");
-        System.out.println("Use only your hearing and instincts to find the monster as seeing it would cause you to go insane");
-        System.out.println("");
-
-        while (player.x_coord != monster.x_coord || player.y_coord != monster.y_coord)
+        try
         {
-            printHorizon(player, monster);
-            printVertical(player, monster);
-            System.out.println("Your move(W/A/S/D): ");
-            do
-            {
-                userInput = scan.nextLine();
-                if (!userInput.equalsIgnoreCase("W") && !userInput.equalsIgnoreCase("A")
-                        && !userInput.equalsIgnoreCase("D") && !userInput.equalsIgnoreCase("S"))
-                {
-                    System.out.println("Invalid input! Try again!");
-                }
-                else
-                {
-                    isMoveValid = true;
-                }
-            } while (!isMoveValid);  // Validates user input
-
-            switch (userInput)
-            {
-                case "W":
-                    player.y_coord = player.y_coord + 1;
-                    break;
-                case "S":
-                    player.y_coord = player.y_coord - 1;
-                    break;
-                case "A":
-                    player.x_coord = player.x_coord - 1;
-                    break;
-                case "D":
-                    player.x_coord = player.x_coord + 1;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        isMoveValid = false;
-        System.out.println("");
-        System.out.println("You found THE ENTITY! Avoid its attacks and look for openings!");
-
-        while (monster.getHealth() > 0 && player.getHealth() != 0)
-        {
+            Player checkPointPlayer = player;
+            Scanner scan = new Scanner(System.in);
+            Random rand = new Random();
+            Entity monster = new Monster("THE ENTITY");
+            String userInput = "";
+            int userAction;
+            Item blindfold = new Blindfold();
+            
+            
+            addMoves();
+            
+            boolean isMoveValid = false;
+            boolean isMoveCorrect = false;
+            int parrySuccess = 0;
+            
+            monster.setHealth(3);
+            player.setHealth(1);
+            monster.setLocation(rand.nextInt(5) + 3, 3);
+            player.setLocation(5, 0);
+            
+            System.out.println("You followed the footprints and howls to a large room...");
             System.out.println("");
-            System.out.println("The monster used the following move: " + genParry(player.showWeapon().parrySeq()));
-            System.out.print("Parry the attack: ");
-
-            do
+            Thread.sleep(2000);
+            System.out.println("You're about to meet THE ENTITY, put your blindfold on! (Press 2):");
+            System.out.println("...");
+            
+            do 
             {
-                userInput = scan.nextLine();
-                if (userInput.length() != getParrySeq())
+                try
                 {
-                    System.out.println("Invalid input! Please try again");
+                    userAction = scan.nextInt();
+                    if (userAction != 2)
+                    {
+                        System.out.println("[Invalid Input!]");
+                        isMoveCorrect = false;
+                    }
+                    else
+                    {
+                        blindfold.useItem();
+                        isMoveCorrect = true;
+                    }
                 }
-
-                else if (!userInput.equalsIgnoreCase("S") && !userInput.equalsIgnoreCase("A") && !userInput.equalsIgnoreCase("D") && !userInput.equalsIgnoreCase("W")
-                        && !userInput.equalsIgnoreCase("SS") && !userInput.equalsIgnoreCase("SD") && !userInput.equalsIgnoreCase("SA")
-                        && !userInput.equalsIgnoreCase("SDA") && !userInput.equalsIgnoreCase("SSD") && !userInput.equalsIgnoreCase("SSA"))
+                catch(InputMismatchException e)
                 {
-                    player.setHealth(0);
-                    // Starts all over from the Check Point
-                    GameOverScreen.printGameOverScreen(checkPointPlayer, "Game over! You failed to counter the attack.");
-                    break;
+                    System.out.println("");
+                    System.out.println("Invalid input! Please try again.");
+                    scan = new Scanner(System.in);
+                    System.out.println("");
+                                    
                 }
-                else
-                {
-                    isMoveValid = true;
-                }
-            } while (!isMoveValid);
-
-            if (checkParry(userInput))
+            } while (!isMoveCorrect);
+            
+            System.out.println("");
+            Thread.sleep(2000);
+            System.out.println("Use only your hearing and instincts to find the monster as seeing it would cause you to go insane");
+            System.out.println("");
+            Thread.sleep(2000);
+            
+            while (player.x_coord != monster.x_coord || player.y_coord != monster.y_coord)
             {
-                parrySuccess++;
-
-                switch (parrySuccess)
+                printHorizon(player, monster);
+                printVertical(player, monster);
+                
+                System.out.println("Your move(W/A/S/D): ");
+                do
                 {
-                    case 3:
-                    case 6:
-                    case 9:
-                        System.out.print("You found a weak spot, strike now! (Press 1): ");
-
-                        do
-                        {
-                            userAttack = scan.nextInt();
-                            if (userAttack != 1)
-                            {
-                                System.out.println("[Invalid Input!]");
-                                isMoveCorrect = false;
-                            }
-                            else
-                            {
-                                System.out.println("You dealt " + player.showWeapon().attack() + " damage to the Entity");
-                                monster.setHealth(monster.getHealth() - player.showWeapon().attack());
-                                isMoveCorrect = true;
-                            }
-                        } while (!isMoveCorrect);
+                    userInput = scan.nextLine();
+                    if (!userInput.equalsIgnoreCase("W") && !userInput.equalsIgnoreCase("A")
+                            && !userInput.equalsIgnoreCase("D") && !userInput.equalsIgnoreCase("S"))
+                    {
+                        System.out.println("Invalid input! Try again!");
+                    }
+                    else
+                    {
+                        isMoveValid = true;
+                    }
+                } while (!isMoveValid);  // Validates user input
+                
+                switch (userInput)
+                {
+                    case "W":
+                        player.y_coord = player.y_coord + 1;
+                        break;
+                    case "S":
+                        player.y_coord = player.y_coord - 1;
+                        break;
+                    case "A":
+                        player.x_coord = player.x_coord - 1;
+                        break;
+                    case "D":
+                        player.x_coord = player.x_coord + 1;
+                        break;
+                    default:
+                        break;
                 }
             }
-        }
-        System.out.println("With that fatal blow, you've defeated the monster.");
-        System.out.println("All remaining survivors return to normal and the apocalypse is finally over.");
-    }
+            
+            isMoveCorrect = false;
+            isMoveValid = false;
+            System.out.println("...");
+            Thread.sleep(2000);
+            System.out.println("You found THE ENTITY! Avoid its attacks and look for openings!");
+            
+            while (monster.getHealth() > 0 && player.getHealth() != 0)
+            {
+                System.out.println("");
+                Thread.sleep(2000);
+                System.out.println("The monster used the following move: " + genParry(player.showWeapon().parrySeq()));
+                System.out.print("Parry the attack: ");
+                
+                do
+                {
+                    userInput = scan.nextLine();
+                    if (userInput.length() != getParrySeq())
+                    {
+                        System.out.println("Invalid input! Please try again");
+                    }
+                    
+                    else if (!userInput.equalsIgnoreCase("S") && !userInput.equalsIgnoreCase("A") && !userInput.equalsIgnoreCase("D") && !userInput.equalsIgnoreCase("W")
+                            && !userInput.equalsIgnoreCase("SS") && !userInput.equalsIgnoreCase("SD") && !userInput.equalsIgnoreCase("SA")
+                            && !userInput.equalsIgnoreCase("SDA") && !userInput.equalsIgnoreCase("SSD") && !userInput.equalsIgnoreCase("SSA"))
+                    {
+                        player.setHealth(0);
+                        // Starts all over from the Check Point
+                        GameOverScreen.printGameOverScreen(checkPointPlayer, "Game over! You failed to counter the attack.");
+                        break;
+                    }
+                    else
+                    {
+                        isMoveValid = true;
+                    }
+                } while (!isMoveValid);
+                
+                if (checkParry(userInput))
+                {
+                    parrySuccess++;
+                    // Checks amount of successful attempt. Allows attack after every 3 successful block.
+                    switch (parrySuccess)
+                    {
+                        case 3:
+                        case 6:
+                        case 9:
+                            System.out.print("You found a weak spot, strike now! (Press 1): ");
+                            
+                            do 
+                            {
+                                try
+                                {
+                                    userAction = scan.nextInt();
+                                    if (userAction != 1)
+                                    {
+                                        System.out.println("[Invalid Input!]");
+                                        isMoveCorrect = false;
+                                    }
+                                    else
+                                    {
+                                        System.out.println("You dealt " + player.showWeapon().attack() + " damage to the Entity");
+                                        monster.setHealth(monster.getHealth() - player.showWeapon().attack());
+                                        isMoveCorrect = true;
+                                    }
+                                }
+                                catch(InputMismatchException e)
+                                {
+                                    System.out.println("");
+                                    System.out.println("Invalid input! Please try again.");
+                                    scan = new Scanner(System.in);
+                                    System.out.println("");
+                                    
+                                }
+                            } while (!isMoveCorrect);
+                    }
+                }
+            }
+            
+            
+            Thread.sleep(2000);
+            System.out.println("");
+            System.out.println("With that fatal blow, you've defeated the monster.");
+            Thread.sleep(1000);
+            System.out.println("All remaining survivors return to normal and the apocalypse is finally over.");
+             
+        } 
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt(); // restore interrupted status
+        }      
+   }
+
 }

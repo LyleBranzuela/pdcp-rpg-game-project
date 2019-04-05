@@ -31,20 +31,24 @@ public class Stage_3 extends Stage
         Item barbedBat = new BarbedBat();
         Item dualDag = new Daggers();
         Item machete = new Machete();
+        Item blindfold = new Blindfold();
 
         try
         {
             // Continues from stage 2 and prints weapon info
             System.out.println("As you walk down a long hallway, you found a room where police kept confiscated weapons.");
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             System.out.println("Knowing guns will disrupt your hearing as well as alert the Infected, you start digging for something else.");
             System.out.println("");
             Thread.sleep(3000);
             System.out.println("You have Found: ");
             System.out.println("1) Barbed Bat: " + barbedBat.printDescription());
+            Thread.sleep(2000);
             System.out.println("2) Dual Daggers: " + dualDag.printDescription());
+            Thread.sleep(2000);
             System.out.println("3) Heavy Machete: " + machete.printDescription());
             System.out.println("=============================================================================================");
+            Thread.sleep(2000);
             System.out.print("Pick a Weapon [1|2|3]: ");
 
             do
@@ -89,6 +93,9 @@ public class Stage_3 extends Stage
             System.out.println("You hear a strange howl followed by loud, inhuman footsteps. The entity has arrived");
             Thread.sleep(3000);
             System.out.println("You think to yourself: If you can kill the entity, this apocalypse will finally be over.");
+            Thread.sleep(3000);
+            System.out.println("");
+            System.out.println("You then cut a piece of your clothes to make a blindfold to protect yourself from the Entity's powers.");
             Thread.sleep(3000);
             System.out.println("");
             System.out.println("=============================================================================================");
