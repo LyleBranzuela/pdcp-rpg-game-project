@@ -5,10 +5,10 @@
  */
 package CUI.Items;
 
-import CUI.Entity_Package.Enemy;
 
 /**
  * An interface for items that are weapons.
+ * 
  * @author lyleb and khoap
  */
 public interface Weapon

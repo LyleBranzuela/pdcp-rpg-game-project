@@ -9,8 +9,6 @@ import CUI.Entity_Package.Entity;
 import CUI.Entity_Package.Monster;
 import CUI.Entity_Package.Player;
 import CUI.GameOverScreen;
-import CUI.Items.Item;
-import CUI.Items.Machete;
 import CUI.UtilityMethods;
 import java.util.ArrayList;
 import java.util.Random;
@@ -30,7 +28,7 @@ public class Stage_4 extends Stage
     private ArrayList<String> hardParry;
 
     /**
-     * 
+     *
      */
     public void addMoves()
     {
@@ -122,8 +120,8 @@ public class Stage_4 extends Stage
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param player
      * @param monster
      * @return
@@ -136,8 +134,8 @@ public class Stage_4 extends Stage
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param player
      * @param monster
      * @return
@@ -151,7 +149,7 @@ public class Stage_4 extends Stage
 
     /**
      * Returns the parry difficulty of the parry generated.
-     * 
+     *
      * @return parry difficulty.
      */
     public int getParrySeq()
@@ -160,8 +158,8 @@ public class Stage_4 extends Stage
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param player
      * @param monster
      */
@@ -189,8 +187,8 @@ public class Stage_4 extends Stage
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param player
      * @param monster
      */
@@ -231,7 +229,7 @@ public class Stage_4 extends Stage
     }
 
     /**
-     *
+     * 
      * @param player
      */
     @Override
@@ -266,9 +264,6 @@ public class Stage_4 extends Stage
         {
             printHorizon(player, monster);
             printVertical(player, monster);
-            // Clearing out the Buffer
-            scan.close();
-            scan = new Scanner(System.in);
             System.out.println("Your move(W/A/S/D): ");
             do
             {
@@ -368,18 +363,4 @@ public class Stage_4 extends Stage
         System.out.println("With that fatal blow, you've defeated the monster.");
         System.out.println("All remaining survivors return to normal and the apocalypse is finally over.");
     }
-
-    public static void main(String[] args)
-    {
-        Player test = new Player("Test");
-        Stage stage4 = new Stage_4();
-
-        Item machete = new Machete();
-
-        test.pickupItem(machete);
-
-        stage4.initiateStage(test);
-
-    }
-
 }

@@ -5,7 +5,6 @@
  */
 package CUI.Items;
 
-import CUI.Entity_Package.Enemy;
 
 /**
  * Item subclass for the Machete Weapon.
@@ -38,7 +37,6 @@ public class Machete extends Item implements Weapon
     /**
      * Attack an entity with a machete.
      *
-     * @param enemy what enemy is getting attacked.
      * @return the damage made.
      */
     @Override

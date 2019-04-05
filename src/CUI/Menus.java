@@ -12,7 +12,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- *
+ * Menus, shows everything from New, Load, Reset Saves, and Exit.
+ * 
  * @author lyleb and khoap
  */
 public class Menus

@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
- *
+ * Class for FileIO of SaveLoad in the game.
  * @author lyleb and khoap
  */
 public class SaveLoad
@@ -105,6 +105,7 @@ public class SaveLoad
     
     /**
      * Reset The Save File.
+     * 
      * @throws java.io.IOException if there's an error in the File IO.
      */
     public static void resetSaveFile() throws IOException 

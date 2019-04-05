@@ -28,15 +28,17 @@ public class Stage_1 extends Stage
     public void initiateStage(Player player)
     {
         // Iniating the Stage's Variables
+        // 5 Minutes (In Seconds)
+        this.currentPlayer = player;
         final int password = 1412;
         int userInput = 0;
         Scanner scan = new Scanner(System.in);
 
         try
         {
-            Scanner skipScan = new Scanner(System.in);
+
             System.out.print("[Type S to Skip Cutscene | Type Any to Start]: ");
-            String selection = skipScan.nextLine();
+            String selection = scan.nextLine();
             System.out.println("============================================================");
             switch (selection)
             {
@@ -100,22 +102,34 @@ public class Stage_1 extends Stage
             Thread.sleep(2000);
             System.out.println("- The passcode must be answered within 5 minutes.");
             Thread.sleep(2000);
+
             int tries = 0;
-            while (userInput != password && tries != 3)
+            boolean expired = false;
+            while (scan.hasNextInt())
+            {
+                scan.nextInt();
+            }
+            long limit = 300000L;
+            long startTime = System.currentTimeMillis();
+            while (userInput != password && tries != 3 && !expired)
             {
                 try
                 {
                     System.out.println("==============================================================================");
                     System.out.print("Enter the passcode: ");
                     userInput = scan.nextInt();
-                    Thread.sleep(1000);
+                    if ((startTime + limit) < System.currentTimeMillis())
+                    {
+                        expired = true;
+                        System.out.println("You ran out of time and the guards come in.");
+                        GameOverScreen.printGameOverScreen(player, "You have been detected!");
+                    }
                     System.out.print("...");
-                    Thread.sleep(2000);
 
                     if (userInput != password)
                     {
                         tries++;
-                        System.out.print("The passcode was wrong, " + tries + " of the 3 red dots glow.\n");
+                        System.out.print("The passcode was wrong, " + tries + " of the 3 RED DOTS glow.\n");
                     }
                 }
                 // If the user inputted a passcode that isn't a number.
@@ -128,7 +142,6 @@ public class Stage_1 extends Stage
                 {
                     if (tries == 3)
                     {
-                        timerTask.interrupt();
                         System.out.print("All the red dots on the passcode glows...\n");
                         Thread.sleep(2000);
                         System.out.println("The alarm goes off and the guard notices you.");

@@ -1,6 +1,7 @@
 Walkthrough for the Game:
-=======================================================================
+=================================================================================================================
 1) Stage 1 [Escape Room] - 1412 is the passcode.
 2) Stage 2 [Guard Watch] - Go to the opposite direction the Guard goes.
-3) Stage 3 [Weapon Room] - Choose whatever weapon you want.
-4) Stage 4 [Boss Room] - 
+3) Stage 3 [Weapon Room] - Choose whatever weapon you want, what weapon you choose decides what difficulty it is.
+4) Stage 4 [Boss Room] - Make sure you wear the blindfold.
+                       - Parry the monster's moves by inputting the opposite direction of its movements

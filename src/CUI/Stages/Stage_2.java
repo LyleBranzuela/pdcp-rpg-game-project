@@ -140,8 +140,6 @@ public class Stage_2 extends Stage
             {
                 this.genMove();
                 // Clears out the buffer that was inputted beforehand.
-                scan.close();
-                scan = new Scanner(System.in); 
                 System.out.print("Action [A|W|D]: ");
                 do
                 {
@@ -177,7 +175,6 @@ public class Stage_2 extends Stage
                 System.out.println("");
                 System.out.println("==============================================================================");
                 System.out.println("You have successfully avoided all three guards!");
-                System.out.println("");
                 Thread.sleep(1000);
                 System.out.println("You open a door and see a room with three weapons.");
                 System.out.println("==============================================================================");

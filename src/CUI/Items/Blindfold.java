@@ -6,8 +6,9 @@
 package CUI.Items;
 
 /**
- *
- * @author lyleb
+ * Class for the blindfold item.
+ * 
+ * @author lyleb and khoap
  */
 public class Blindfold extends Item
 {

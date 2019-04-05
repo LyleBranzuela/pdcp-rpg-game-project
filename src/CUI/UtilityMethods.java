@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
+ * Holds all utility methods used by multiple classes.
  *
  * @author lyleb and khoap
  */
@@ -31,9 +32,9 @@ public class UtilityMethods
     }
 
     /**
-     * 
+     *
      * @param event
-     * @return 
+     * @return
      */
     public static int setChoices(String[] event)
     {

@@ -7,6 +7,7 @@ package CUI.Entity_Package;
 
 /**
  * Interface for the Enemy type Entity.
+ * 
  * @author lyleb and khoap
  */
 public interface Enemy

@@ -5,10 +5,6 @@
  */
 package CUI.Items;
 
-import CUI.Entity_Package.Enemy;
-import CUI.Entity_Package.HiddenMonster;
-import CUI.Entity_Package.Monster;
-
 /**
  * Item subclass for the Barbed Bat Weapon.
  *
@@ -39,7 +35,6 @@ public class BarbedBat extends Item implements Weapon
     /**
      * Attack an entity with a barbed bat.
      *
-     * @param enemy what enemy is getting attacked.
      * @return the damage made.
      */
     @Override

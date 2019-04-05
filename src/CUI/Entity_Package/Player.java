@@ -99,7 +99,7 @@ public class Player extends Entity
     /**
      * Sets the stage level the character is in.
      *
-     * @param stage
+     * @param stage what stage it should be set in.
      */
     public void setCurrentStageLevel(Stage stage)
     {

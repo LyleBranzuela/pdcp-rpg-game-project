@@ -5,10 +5,9 @@
  */
 package CUI.Items;
 
-import CUI.Entity_Package.Enemy;
-
 /**
  * Item subclass for the Daggers Weapon.
+ * 
  * @author lyleb and khoap
  */
 public class Daggers extends Item implements Weapon
@@ -35,8 +34,7 @@ public class Daggers extends Item implements Weapon
 
     /**
      * Attack an entity with two daggers.
-     * 
-     * @param enemy what enemy is getting attacked. 
+     *
      * @return the damage made.
      */
     @Override

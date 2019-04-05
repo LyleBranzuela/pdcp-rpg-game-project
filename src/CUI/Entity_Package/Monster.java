@@ -6,8 +6,9 @@
 package CUI.Entity_Package;
 
 /**
+ * Created enemy Class, monster type.
  * 
- * @author lyleb
+ * @author lyleb and khoap.
  */
 public class Monster extends Entity implements Enemy
 {
