@@ -265,13 +265,19 @@ public class Stage_4 extends Stage
             System.out.println("You followed the footprints and howls to a large room...");
             System.out.println("");
             Thread.sleep(2000);
+<<<<<<< HEAD
+            System.out.println("You're about to meet THE ENTITY, put your blindfold on! (Press 2): ");
+            
+=======
             System.out.println("You're about to meet THE ENTITY, put your blindfold on! (Press 2):");
             System.out.println("...");
+>>>>>>> 821e90c2dd8a79ec7da2bf6b643778dd657ca546
             
             do 
             {
                 try
                 {
+                    scan = new Scanner(System.in);
                     userAction = scan.nextInt();
                     if (userAction != 2)
                     {
@@ -294,6 +300,7 @@ public class Stage_4 extends Stage
                 }
             } while (!isMoveCorrect);
             
+            System.out.println("...");
             System.out.println("");
             Thread.sleep(2000);
             System.out.println("Use only your hearing and instincts to find the monster as seeing it would cause you to go insane");
@@ -308,7 +315,9 @@ public class Stage_4 extends Stage
                 System.out.print("Your move(W/A/S/D): ");
                 do
                 {
+                    scan = new Scanner(System.in);
                     userInput = scan.nextLine();
+                   
                     if (!userInput.equalsIgnoreCase("W") && !userInput.equalsIgnoreCase("A")
                             && !userInput.equalsIgnoreCase("D") && !userInput.equalsIgnoreCase("S"))
                     {
@@ -343,7 +352,7 @@ public class Stage_4 extends Stage
             isMoveValid = false;
             System.out.println("...");
             Thread.sleep(2000);
-            System.out.println("You found THE ENTITY! Avoid its attacks and look for openings!");
+            System.out.println("You found THE ENTITY! Reverse its attacks to parry and look for openings!");
             
             while (monster.getHealth() > 0 && player.getHealth() != 0)
             {
@@ -354,6 +363,7 @@ public class Stage_4 extends Stage
                 
                 do
                 {
+                    scan = new Scanner(System.in);
                     userInput = scan.nextLine();
                     if (userInput.length() != getParrySeq())
                     {
@@ -390,6 +400,7 @@ public class Stage_4 extends Stage
                             {
                                 try
                                 {
+                                    scan = new Scanner(System.in);
                                     userAction = scan.nextInt();
                                     if (userAction != 1)
                                     {
@@ -421,7 +432,8 @@ public class Stage_4 extends Stage
             System.out.println("");
             System.out.println("With that fatal blow, you've defeated the monster.");
             Thread.sleep(1000);
-            System.out.println("All remaining survivors return to normal and the apocalypse is finally over.");
+            System.out.println("The apocalypse is finally over.");
+            System.out.println("================================================================================");
              
         } 
         catch(InterruptedException ex)

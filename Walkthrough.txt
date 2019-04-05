@@ -1,7 +1,15 @@
 Walkthrough for the Game:
-=================================================================================================================
-1) Stage 1 [Escape Room] - 1412 is the passcode.
-2) Stage 2 [Guard Watch] - Go to the opposite direction the Guard goes.
-3) Stage 3 [Weapon Room] - Choose whatever weapon you want, what weapon you choose decides what difficulty it is.
-4) Stage 4 [Boss Room] - Make sure you wear the blindfold.
-                       - Parry the monster's moves by inputting the opposite direction of its movements
+=======================================================================
+1) Stage 1 [Escape Room] - 1412 is the passcode. 
+                         - Ways to solve this riddle:
+                           + Realizing the first and third digit is the same makes the riddle trivial. Just solve for 2nd and 4th digit.
+                           + Trial and error is also a good strategy as the first digit can only be 1 or 2 if it is 1/4 of second digit. 
+                             This is because anything larger than 2 would give a 2-digit answer which is impossible.
+                             
+2) Stage 2 [Stealth/Sneak] - Avoid guards by inputing opposite of their horizontal movements or mimic their vertical movements.
+
+3) Stage 3 [Weapon Room] - Choose any weapon. Each has their own advantage and disadvantage.
+
+4) Stage 4 [Boss Room] - Finding phase: Text will change depending on input to notify user on how close/far they are from monster. 
+                       - Combat phase: Same mechanic as Stage 2. Inputing opposite of each character of monster's attack move to parry.
+                                       Every 3 successful parry attempts will give an opportunity to attack. Game finishes when monster                                          dies or player fails to dodge.
