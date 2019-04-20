@@ -425,7 +425,7 @@ public class Stage_4 extends Stage
             }
             
             
-            if (monster.getHealth() < 0 && player.getHealth() > 0)
+            if (monster.getHealth() <= 0 && player.getHealth() > 0)
             {
                 Thread.sleep(2000);
                 System.out.println("");
@@ -436,10 +436,7 @@ public class Stage_4 extends Stage
             }
             else if(player.getHealth() == 0)
             {
-                Thread.sleep(2000);
-                System.out.println("");
-                System.out.println("Game over! You failed to dodge the entity's attack...");
-                System.out.println("");
+                GameOverScreen.printGameOverScreen(checkPointPlayer, "Game over! You failed to dodge the entity's attack...");
             }
         } 
         catch(InterruptedException ex)
@@ -447,5 +444,4 @@ public class Stage_4 extends Stage
             Thread.currentThread().interrupt(); // restore interrupted status
         }      
    }
-
 }
